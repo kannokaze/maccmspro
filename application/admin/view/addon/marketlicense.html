@@ -1,0 +1,69 @@
+{include file="../../../application/admin/view/public/head" /}
+<div class="page-container">
+    <div class="my-toolbar-box">
+        <div class="center mb10" style="text-align: center">
+            <fieldset class="layui-elem-field" style="width: 460px;margin: auto">
+                <legend>{:lang('admin/addon/marketlicense/desc1')}</legend>
+                <div class="layui-field-box">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block" style="margin-left: 10px;margin-top: 20px">
+                            <input id="license" type="text" autocomplete="off" placeholder="{:lang('admin/addon/marketlicense/desc2')}" class="layui-input" name="license" value="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <button id="convertbut" class="layui-btn" style="margin-top: 20px">{:lang('admin/addon/marketlicense/desc3')}</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+{include file="../../../application/admin/view/public/foot" /}
+
+<script type="text/javascript">
+    var url='';
+    layui.use(['form','element'], function() {
+        $(document).on('click', '#convertbut', function() {
+            if(''==$("#license").val()){
+                layer.msg("{:lang('admin/addon/marketlicense/desc4')}");return;
+            }
+            $.ajax({
+                type: 'post',
+                dataType:'json',
+                url: "{:url('addon/licenseconvert')}",
+                data:{id:"{$id}",type:"{$type}",license:$("#license").val()},
+                success:function($r){
+                    if($r.code ==200){
+                        //window.open($r.data.down_url);    //打开下载链接
+                        if($r.data.type == "plugins"){
+                            url_href = "{:url('downandinstalladdon')}";
+                            show_str = "{:lang('admin/addon/marketlicense/desc5')}"
+                            show_str2 = "{:lang('admin/addon/marketlicense/desc6')}"
+                        }
+                        if($r.data.type == "theme"){
+                            url_href = "{:url('downandinstalltheme')}";
+                            show_str = "{:lang('admin/addon/marketlicense/desc7')}"
+                            show_str2 = "{:lang('admin/addon/marketlicense/desc8')}"
+                        }
+                        url_href = url_href + "?down_url="+$r.data.down_url+"&file_name="+$r.data.file_name;
+                        layer.open({
+                            type:1,
+                            title:"{:lang('admin/addon/marketlicense/desc9')}",
+                            content:"<div style='padding:20px'><a class='layui-btn' href="+url_href+" title='"+show_str+"'>"+show_str+"</a><a class='layui-btn' href='"+$r.data.down_url+"'>"+show_str2+"</a></div>",
+                            area:["400px","140px"],
+                            offset:"top"
+                        })
+                        return;
+                    }
+                    layer.msg($r.message);
+                },
+                complete:function(){
+                    //layer.msg("未知错误");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+		<html lang="zh-CN">
+		<head>
+		    {include file="public/include"}
+			<title>热榜-{$maccms.site_name}</title>
+            <meta name="keywords" content="{$maccms.site_keywords}" />
+            <meta name="description" content="{$maccms.site_description}" />
+            	{assign name="$maccms.aid" value="9998" /}
+		</head>
+		<body>
+		<div class="page list">
+  {include file="public/head"}
+	<div class="main">
+		<div class="content">
+			<div class="module">
+				<div class="module-heading module-heading-tab">
+				    <span class="module-heading-tab-link active">{$mxprost.mxprocms.s4.hottext}</span>
+				    <span class="line"></span>
+				    <span class="module-heading-tab-link ">{$mxprost.mxprocms.s4.hottext1}</span>
+				    </div>
+				<div class="module-main tab-list active">
+				<div class="module-items module-card-items">
+                {maccms:vod type="all" num="'.$mxprost['mxprocms']['s4']['hotnum'].'"  order="'.$mxprost['mxprocms']['s4']['hotorder'].'" by="'.$mxprost['mxprocms']['s4']['hotby'].'" year="'.$mxprost['mxprocms']['s4']['hotyear'].'"}
+                {include file="block/hotbox"}	
+	           {/maccms:vod}
+                    </div>
+				</div>
+					<div class="module-main tab-list">
+					<div class="module-items module-poster-items">
+					    <div class="module-items module-card-items">
+						{maccms:vod type="all" num="'.$mxprost['mxprocms']['s4']['hotnum1'].'"  order="'.$mxprost['mxprocms']['s4']['hotorder1'].'" by="'.$mxprost['mxprocms']['s4']['hotby1'].'" year="'.$mxprost['mxprocms']['s4']['hotyear1'].'"}
+					    {include file="block/hotbox"}
+	                    {/maccms:vod}
+					</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  {include file="public/foot"}
+</div>
+</body>
+</html>

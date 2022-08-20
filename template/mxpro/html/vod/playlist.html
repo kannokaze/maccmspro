@@ -1,0 +1,29 @@
+	                  
+	                  
+	                    <div class="module">
+						<div class="module-heading player-heading">
+							<h2 class="module-title">选集播放</h2>
+							<div class="module-tab"><label class="module-tab-name"><span id="y-first-name" class="module-tab-value"></span><i class="icon-arrow"></i></label>
+								<div class="module-tab-items">
+									<div class="module-tab-title">选择播放源<span class="close-drop"><i class="icon-close"></i></span></div>
+									<div class="module-tab-items-box hisSwiper" id="y-playList">
+								    {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	  
+                                    <div class="module-tab-item tab-item" data-dropdown-value="{$vo.player_info.show}"><span>{$vo.player_info.show}</span><small>{$vo.url_count}</small></div>
+                                   {/maccms:foreach}		
+									</div>
+								</div>
+							</div>
+							<div class="shortcuts-mobile-overlay"></div>
+						</div>
+						 {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	
+						<div class="module-list sort-list tab-list his-tab-list" id="panel1">
+							<div class="module-play-list">
+								<div class="module-play-list-content {if condition="$obj.type_id_1 eq 3||$obj.type_id eq 3 or $obj.type_id_1 eq 1||$obj.type_id eq 1"} module-play-list-larger {else} module-play-list-base{/if}">
+								     {maccms:foreach name="vo.urls" id="vo2" key="key2" } 
+                                     <a  class="module-play-list-link" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" title="播放{$obj.vod_name}{$vo2.name}"><span>{$vo2.name}</span></a>
+                                        {/maccms:foreach}      
+								</div>
+							</div>
+						</div>
+						 {/maccms:foreach}
+					</div>

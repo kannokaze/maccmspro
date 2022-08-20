@@ -1,0 +1,27 @@
+<div class="layui-tab-item">
+
+    <blockquote class="layui-elem-quote layui-quote-nm">
+        {:lang('admin/system/config/copyright_msg')}：<br>
+        {:lang('admin/extend/aliyun/desc1')}：https://www.aliyun.com/product/sms<br>
+        {:lang('admin/extend/aliyun/desc2')}：<br>
+        {:lang('admin/extend/aliyun/desc3')}：${code}，{:lang('admin/extend/aliyun/desc4')}<br>
+        {:lang('admin/extend/aliyun/desc5')}：${code}，{:lang('admin/extend/aliyun/desc6')}<br>
+        {:lang('admin/extend/aliyun/desc5')}：${code}，{:lang('admin/extend/aliyun/desc7')}<br>
+    </blockquote>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">KeyId：</label>
+        <div class="layui-input-inline w400">
+            <input type="text" name="sms[aliyun][appid]" placeholder="" value="{$config['sms']['aliyun']['appid']}" class="layui-input"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux"></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">KeySecret：</label>
+        <div class="layui-input-inline w400">
+            <input type="text" name="sms[aliyun][appkey]" placeholder="" value="{$config['sms']['aliyun']['appkey']}" class="layui-input"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux"></div>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="module">
+	<div class="module-heading">
+	    <i class="icon-hot" style="color:#FF0000"></i>
+		<h2 class="module-title">{$mxprost.mxprocms.s3.indexhottext}</h2></div>
+	<div class="module-main scroll-box">
+		<div class="module-items {if condition="$mxprost['mxprocms']['s3']['indexhotpic'] eq 1"}module-poster-items-small scroll-content {else}module-poster-items-base{/if}">
+			{maccms:vod num="'.$mxprost['mxprocms']['s3']['indexhotnum'].'" type="all" order="desc" by="time" level="'.$mxprost['mxprocms']['s3']['indexhottj'].'"}
+			{include file="block/vodbox"}
+			{/maccms:vod}
+		</div>
+	</div>
+</div>

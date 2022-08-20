@@ -1,0 +1,48 @@
+<div class="layui-tab-item">
+
+    <blockquote class="layui-elem-quote layui-quote-nm">
+         {:lang('admin/system/config/copyright_msg')}：<br>
+        {:lang('admin/extend/email/send_tip')}
+    </blockquote>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"> {:lang('admin/system/config/cache_host')}：</label>
+        <div class="layui-input-inline">
+            <input type="text" id="host" name="email[phpmailer][host]" placeholder="" value="{$config['email']['phpmailer']['host']}" class="layui-input w200"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux">{:lang('admin/extend/email/smtp_server')}</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">{:lang('admin/system/config/cache_port')}：</label>
+        <div class="layui-input-inline">
+            <input type="text" id="port" name="email[phpmailer][port]" placeholder="" value="{$config['email']['phpmailer']['port']}" class="layui-input w200"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux">{:lang('admin/extend/email/smtp_port')}</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">{:lang('admin/extend/email/trans_protocol')}：</label>
+        <div class="layui-input-inline w200">
+            <select name="email[phpmailer][secure]" >
+                <option value="" {if condition="$config['email']['phpmailer']['secure'] eq ''"}selected{/if}>{:lang('admin/extend/email/default')}</option>
+                <option value="tsl" {if condition="$config['email']['phpmailer']['secure'] eq 'tsl'"}selected{/if}>TSL</option>
+                <option value="ssl" {if condition="$config['email']['phpmailer']['secure'] eq 'ssl'"}selected{/if}>SSL</option>
+            </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux">{:lang('admin/extend/email/deppend_on_server')}</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">{:lang('admin/extend/email/account')}：</label>
+        <div class="layui-input-inline">
+            <input type="text" id="username" name="email[phpmailer][username]" placeholder="" value="{$config['email']['phpmailer']['username']}" class="layui-input w200"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux">{:lang('admin/extend/email/smtp_account')}</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">{:lang('pass')}：</label>
+        <div class="layui-input-inline">
+            <input type="password" id="password" name="email[phpmailer][password]" placeholder="" value="{$config['email']['phpmailer']['password']}" class="layui-input w200"  >
+        </div>
+        <div class="layui-form-mid layui-word-aux">{:lang('admin/extend/email/smtp_pass')}</div>
+    </div>
+
+</div>

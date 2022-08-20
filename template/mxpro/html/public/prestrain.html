@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title></title>
+<style>
+body { padding:0; margin:0; position: relative;}
+.bg { background: url(https://imgtu.com/i/LMVmHH); background-size: 150%; width: 100%; height: 100%; opacity: .38; position: absolute;}
+.main {  width: 100%; position: absolute; z-index: 1; text-align: center; left:0; top:30%;}
+.logo { padding-bottom:30px;}
+.logo img { height:64px;}
+.loading  { width: 60px; height: 60px; display: inline-block; vertical-align: middle; animation: Loading .6s steps(8,end) infinite; background:#000 url() no-repeat; background-size: 100%; border-radius: 50px; border: 10px solid #000; box-sizing: border-box;}
+@keyframes Loading { 0% {-webkit-transform: rotate3d(0,0,1,0deg);transform: rotate3d(0,0,1,0deg);} 100% {-webkit-transform: rotate3d(0,0,1,360deg);transform: rotate3d(0,0,1,360deg);} }
+.tips { color:#fff; margin-top:30px; font-size: 16px; font-weight: 200;}
+@media (max-width: 1239px) {
+  .logo img { height:48px;}
+  .loading { height:48px; width:48px;}
+}
+@media (max-width: 899px) {
+  .main {  top:26%;}
+  .logo img { height:40px;}
+}
+@media (max-width: 899px) {
+.bg { opacity: .56;}
+  .main { top:22%; }
+  .logo { padding-bottom:15px; }
+  .loading { height:40px; width:40px; border-width: 8px;}
+  .tips { margin-top:15px; font-size: 12px;}
+}
+}
+</style>
+</head>
+<body bgcolor="#000000" oncontextmenu="return!1" ondragstart="window.event.returnValue=!1" onsource="event.returnValue=!1" onselectstart="return false">
+<div class="bg"></div>
+<div class="main">
+<div class="logo"><img src="{:mac_url_img($mxprost.mxprocms.s1.logo1)}"></div>
+<div class="loading"></div>
+<div class="tips">如果你觉得Mxone Pro不错，记得把 TA 推荐给朋友们</div>
+</div>
+</html>

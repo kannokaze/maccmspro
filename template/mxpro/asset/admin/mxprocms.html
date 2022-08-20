@@ -1,0 +1,418 @@
+{include file="../../../application/admin/view/public/head" /}
+{include file="../../../template/mxpro/asset/admin/head"}
+<div class="page-container">
+	<form class="layui-form" action="">
+		<div class="layui-tab">
+			<ul class="layui-tab-title">
+				<li class="layui-this">主题说明</li>
+				<li class="">站点配置</li>
+				<li class="">导航菜单</li>
+				<li class="">首页配置</li>
+				<li class="">页面配置</li>
+				<li class="">其他设置</li>
+				<li class="">广告设置</li>
+			</ul>
+			<div class="layui-tab-content">
+				<!--首页-->
+				<div class="layui-tab-item layui-show">
+					<blockquote class="layui-elem-quote" style="margin: 20px 0;border: none;">
+						欢迎使用Mxone Pro主题，本主题由MengXin制作，谢谢支持！<br>
+                        主题制作不易，请不要传播主题，如果被发现传播主题可能会被移出售后群，我们会终止对您的售后服务，还请熟知。<br>
+                    <b style="color:#FF3333">特别声明：本源码仅供交流学习等正规合法用途，请勿用于商业途径及非法运营和非法网站使用，一切法律责任和其他责任与本人以及本公司无关!</b>
+					</blockquote>
+					<div class="layui-col-md4" style="padding-right: 10px;">
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th colspan="2" scope="col">主题简介</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>主题名称</td>
+									<td><span>Mxone Pro</span></td>
+								</tr>
+								<tr>
+									<td>适用系统</td>
+									<td><span class="layui-badge">MACCMS V10</span></td>
+								</tr>
+								<tr>
+									<td>主题作者</td>
+									<td>&#20992;&#23458;&#28304;&#30721;&#32593;</td>
+								</tr>
+								<tr>
+									<td>当前版本</td>
+									<td>2.0</td>
+								</tr>
+								<tr>
+									<td>更新时间</td>
+									<td>2022-05-13</td>
+								</tr>
+								<tr>
+									<td>联系作者</td>
+									<td>
+									<a  target="_blank" href="#">&#20992;&#23458;&#28304;&#30721;&#32593;</a>
+									</td>
+								</tr>
+								<tr>
+									<td>官网地址</td>
+									<td>
+										<a   target="_blank" href="javascript:;">即将上线</a>
+									</td>
+								</tr>
+								<tr>
+									<td>加入交流群</td>
+									<td>
+										<a  target="_blank" href="#">&#20992;&#23458;&#28304;&#30721;&#32593;</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="layui-col-md8">
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>基础说明</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1. 推荐使用PHP版本≥5.6</td>
+								</tr>
+								<tr>
+									<td>2. 主题文件读写权限755</td>
+								</tr>
+								<tr>
+									<td>3. 不兼容IE8及以下浏览器</td>
+								</tr>
+								<tr>
+									<td>4. 主题具备可复制性，请勿传播</td>
+								</tr>
+								<tr>
+									<td>5. 非技术人员请勿私自修改主题核心文件</td>
+								</tr>
+								<tr>
+									<td>6. 不提供个性化修改服务，高端定制请联系作者洽谈</td>
+								</tr>
+								<tr>
+									<td>7. 使用中出现问题请联系作者，会在24小时内回复你</td>
+								</tr>
+								<tr>
+									<td style="color: red;"> 禁止任何形式的二次出售、分享他人等侵害作者及正版用户的行为，一经发现将不提供更新并加入黑名单。</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--首页end-->
+
+				<div class="layui-tab-item show">
+					<div class="layui-col-md12">
+						<div class="layui-card">
+							<div class="layui-card-header">基本设置</div>
+							<div class="layui-card-body" pad15="">
+							    			<div class="layui-form-item">
+									<label class="layui-form-label">浅色logo</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s1][logo1]" placeholder="首页logo" value="{$config['mxprocms']['s1']['logo1']}" class="layui-input upload-input" placeholder="建议200*45">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s1][logo1]'}}" id="upload11">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">浅色logo应用于浅色页面</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">深色logo</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s1][logo2]" placeholder="首页logo" value="{$config['mxprocms']['s1']['logo2']}" class="layui-input upload-input" placeholder="建议200*45">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s1][logo2]'}}" id="upload11">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">深色logo应用于深色页面</div>
+								</div>
+						
+
+								<div class="layui-form-item">
+									<label class="layui-form-label">网页图标</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s1][ico]" placeholder="网页图标" value="{$config['mxprocms']['s1']['ico']}" class="layui-input upload-input" placeholder="建议32*32">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s1][ico]'}}" id="upload12">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">浏览器窗口小图标（支持png）</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">懒加载图</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s1][pic]" placeholder="懒加载图片" value="{$config['mxprocms']['s1']['pic']}" class="layui-input upload-input">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s1][pic]'}}" id="upload13">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">封面懒加载图</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">会员中心背景图</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s1][userbg]" placeholder="会员中心背景图" value="{$config['mxprocms']['s1']['userbg']}" class="layui-input upload-input">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s1][userbg]'}}" id="upload14">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">会员中心背景图</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">提示文字</label>
+									<div class="layui-input-inline w500">
+										<input name="mxprocms[s1][searchwd]" type="text" value="{$config['mxprocms']['s1']['searchwd']}" size="60" class="layui-input" placeholder="请输入提示文字">
+									</div>
+									<div class="layui-form-mid layui-word-aux">视频搜索框默认的提示文字</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">底部提示信息</label>
+									<div class="layui-input-block">
+										<textarea name="mxprocms[s1][sm]" class="layui-textarea" placeholder="底部声明">{$config['mxprocms']['s1']['sm']}</textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+				
+                         	<div class="layui-card">
+							<div class="layui-card-header">个性配置</div>
+							<div class="layui-card-body" pad15="">
+								<div class="layui-form-item">
+									<label class="layui-form-label">站点外观</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w300">
+										<input type="radio" name="mxprocms[s2][theme]" value="white" title="浅色" {if condition="$config['mxprocms']['s2']['theme'] eq white"}checked {/if}>
+                                            <input type="radio" name="mxprocms[s2][theme]" value="black" title="深色" {if condition="$config['mxprocms']['s2']['theme'] eq black"}checked {/if}>
+										</div>
+										<div class="layui-form-mid layui-word-aux">默认浅色，切换站点外观前台需要清除缓存才可显示</div>
+									</div>
+								</div>
+								
+								<div class="layui-form-item">
+									<label class="layui-form-label">跳转状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][tzzt]" {if condition="$config['mxprocms']['s2']['tzzt'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">开启后点击视频直接跳到播放页，关闭状态下跳转到详情页</div>
+									</div>
+								</div>
+									<div class="layui-form-item">
+									<label class="layui-form-label">关键词提示</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][searchtips]" {if condition="$config['mxprocms']['s2']['searchtips'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">开启后搜索输入框无关键词进行搜索弹出提示</div>
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">豆瓣跳转</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][douban]" {if condition="$config['mxprocms']['s2']['douban'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">开启后详情页显示豆瓣标题，关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+									<div class="layui-form-item">
+									<label class="layui-form-label">横图封面</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][qjpic]" {if condition="$config['mxprocms']['s2']['qjpic'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">开启后全站显示横幅封面，默认竖图</div>
+									</div>
+								</div>
+											<fieldset class="layui-elem-field">
+						<legend>底部设置</legend>
+						<div class="layui-form-item">
+							<label class="layui-form-label">地图模块状态</label>
+							<div class="layui-input-block">
+								<div class="layui-input-inline w70">
+									<input type="checkbox" name="mxprocms[s2][dbmap]" {if condition="$config['mxprocms']['s2']['dbmap'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<div class="layui-form-mid layui-word-aux">默认开启,关闭后不显示对应模块和内容</div>
+							</div>
+						</div>
+					    	<fieldset class="layui-elem-field">
+						<legend>文字模块一设置</legend>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块状态</label>
+							<div class="layui-input-block">
+								<div class="layui-input-inline w70">
+									<input type="checkbox" name="mxprocms[s2][dbfk]" {if condition="$config['mxprocms']['s2']['dbfk'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<div class="layui-form-mid layui-word-aux">默认开启,关闭后不显示对应模块和内容</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块标题：</label>
+							<div class="layui-input-inline w200"><input name="mxprocms[s2][dbfktext]" type="text" value="{$config['mxprocms']['s2']['dbfktext']}" size="60" class="layui-input"></div>
+							<div class="layui-form-mid layui-word-aux">模块显示的标题</div>
+						</div>
+								<div class="layui-form-item">
+					<label class="layui-form-label">跳转链接</label>
+					<div class="layui-input-inline w200">
+						<input type="text" name="mxprocms[s2][dbfkurl]" value="{$config['mxprocms']['s2']['dbfkurl']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的跳转链接</div>
+				</div>
+					</fieldset>
+					 	<fieldset class="layui-elem-field">
+						<legend>文字模块二设置</legend>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块状态</label>
+							<div class="layui-input-block">
+								<div class="layui-input-inline w70">
+									<input type="checkbox" name="mxprocms[s2][qqqun]" {if condition="$config['mxprocms']['s2']['qqqun'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<div class="layui-form-mid layui-word-aux">默认开启,关闭后不显示对应模块和内容</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块标题：</label>
+							<div class="layui-input-inline w200"><input name="mxprocms[s2][qqquntext]" type="text" value="{$config['mxprocms']['s2']['qqquntext']}" size="60" class="layui-input"></div>
+							<div class="layui-form-mid layui-word-aux">模块显示的标题</div>
+						</div>
+								<div class="layui-form-item">
+					<label class="layui-form-label">跳转链接</label>
+					<div class="layui-input-inline w200">
+						<input type="text" name="mxprocms[s2][qqqunurl]" value="{$config['mxprocms']['s2']['qqqunurl']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的跳转链接</div>
+				</div>
+					</fieldset>
+							 	<fieldset class="layui-elem-field">
+						<legend>文字模块三设置</legend>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块状态</label>
+							<div class="layui-input-block">
+								<div class="layui-input-inline w70">
+									<input type="checkbox" name="mxprocms[s2][telegram]" {if condition="$config['mxprocms']['s2']['telegram'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+								</div>
+								<div class="layui-form-mid layui-word-aux">默认开启,关闭后不显示对应模块和内容</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块标题：</label>
+							<div class="layui-input-inline w200"><input name="mxprocms[s2][telegramtext]" type="text" value="{$config['mxprocms']['s2']['telegramtext']}" size="60" class="layui-input"></div>
+							<div class="layui-form-mid layui-word-aux">模块显示的标题</div>
+						</div>
+								<div class="layui-form-item">
+					<label class="layui-form-label">跳转链接</label>
+					<div class="layui-input-inline w200">
+						<input type="text" name="mxprocms[s2][telegramurl]" value="{$config['mxprocms']['s2']['telegramurl']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的跳转链接</div>
+				</div>
+					</fieldset>
+					</fieldset>
+							</div>
+						</div>
+					</div>
+				</div>
+            {include file="../../../template/mxpro/asset/admin/caidan"}
+            {include file="../../../template/mxpro/asset/admin/shouye"}
+            {include file="../../../template/mxpro/asset/admin/yemian"}
+            {include file="../../../template/mxpro/asset/admin/qita"}
+            {include file="../../../template/mxpro/asset/admin/ads"}
+			</div>
+		</div>
+		<div class="layui-form-item center" style="padding-top: 20px;">
+			<div class="layui-input-block">
+				<button type="submit" class="layui-btn" lay-submit="" lay-filter="formSubmit">保存主题设置</button>
+			</div>
+		</div>
+	</form>
+</div>
+{include file="../../../application/admin/view/public/foot" /}
+<script type="text/javascript">
+	layui.use(['form', 'upload', 'layer'], function() {
+		// 操作对象
+		var form = layui.form,
+			layer = layui.layer,
+			upload = layui.upload;
+
+		form.on('radio(cache_type)', function(data) {
+			$('.row_cache_server').hide();
+			if(data.value == 'memcache' || data.value == 'redis' || data.value == 'memcached') {
+				$('.row_cache_server').show();
+			}
+		});
+		upload.render({
+			elem: '.layui-upload',
+			url: "{:url('upload/upload')}?flag=mxprocms",
+			method: 'post',
+			before: function(input) {
+				layer.msg('文件上传中...', {
+					time: 3000000
+				});
+			},
+			done: function(res, index, upload) {
+				var obj = this.item;
+				if(res.code == 0) {
+					layer.msg(res.msg);
+					return false;
+				}
+				layer.closeAll();
+				var input = $(obj).parent().parent().find('.upload-input');
+				if($(obj).attr('lay-type') == 'image') {
+					input.siblings('img').attr('src', res.data.file).show();
+				}
+				input.val(res.data.file);
+
+				if(res.data.thumb_class != '') {
+					$('.' + res.data.thumb_class).val(res.data.thumb[0].file);
+				}
+			}
+		});
+		$('.upload-input').hover(function(e) {
+			var e = window.event || e;
+			var imgsrc = $(this).val();
+			if(imgsrc.trim() == "") {
+				return;
+			}
+			var left = e.clientX + document.body.scrollLeft + 20;
+			var top = e.clientY + document.body.scrollTop + 20;
+			$(".showpic").css({
+				left: left,
+				top: top,
+				display: ""
+			});
+			if(imgsrc.indexOf('://') < 0) {
+				imgsrc = ROOT_PATH + '/' + imgsrc;
+			} else {
+				imgsrc = imgsrc.replace('mac:', 'http:');
+			}
+			$(".showpic_img").attr("src", imgsrc);
+		}, function(e) {
+			$(".showpic").css("display", "none");
+		});
+
+	});
+</script>
+
+<style>
+	.layuih3 {
+		padding-left: 10px;
+		font-size: 18px;
+		line-height: 1.2;
+		border-left: 4px solid #5FB878;
+		margin: 20px 0 20px;
+	}
+	.layui-tab {
+    padding: 10px 30px 0 30px;
+}
+</style>
+</body>
+
+</html>

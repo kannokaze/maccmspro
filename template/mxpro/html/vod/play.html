@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+	    {include file="public/include"}
+		<title>在线播放{$obj.vod_name} {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} - 高清资源 - {$maccms.site_name}</title>
+		<meta name="keywords" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍">
+		<meta name="description" content="{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}免费在线观看,{$obj.vod_name}剧情介绍">
+	</head>
+
+	<body>
+		<div class="page player">
+        {include file="public/head"}
+			<div class="main">
+				<div class="content">
+					<div class="module module-player">
+						<div class="module-main">
+							<div class="player-box">
+						<div class="player-box-main">
+		                	{if condition="$obj.vod_copyright eq 1 && $GLOBALS['config']['app']['copyright_status'] eq 1 || $mxprost['mxprocms']['s4']['copyright'] eq 1"}
+                            <div class="MacPlayer copyright">
+                            <div class="vague" href="javascript:" style="background-image: url({:mac_url_img($obj.vod_pic)});"></div>
+                            <div class="txt"><i class="icon-report"></i>{$mxprost.mxprocms.s4.copyrighttxt}</div>
+                            </div>
+                         {else/}
+                        {$player_data}{$player_js}
+                         {/if} 
+								</div>
+                            	{include file="ads/ads-playlist"}
+							</div>
+						{include file="vod/play_list"}
+						</div>
+						{include file="ads/ads-play"}
+					</div>
+					{include file="vod/like"}
+				</div>
+			</div>
+	    {include file="public/foot"}
+		</div>
+		<div class="shortcuts-box"><div id="shortcuts-info"></div></div>
+<span class="mac_ulog_set none" alt="设置播放页浏览记录" data-type="4" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}"></span>
+<span class="mac_hits none" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-type="hits"></span>
+	</body>
+
+</html>

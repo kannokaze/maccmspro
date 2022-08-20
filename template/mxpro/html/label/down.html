@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+		<html lang="zh-CN">
+		<head>
+		    {include file="public/include"}
+			<title>APP下载-{$maccms.site_name}</title>
+            <meta name="keywords" content="{$maccms.site_keywords}" />
+            <meta name="description" content="{$maccms.site_description}" />
+            {assign name="$maccms.aid" value="9997" /}
+		</head>
+		<body>
+		<div class="page list">
+  {include file="public/head"}
+		<div class="main">
+			<div class="content">
+				<div class="module app-module">
+					<div class="app-info">
+						<h1 class="app-title">{$mxprost.mxprocms.s4.apptxt}</h1>
+						<h2 class="app-desc">{$mxprost.mxprocms.s4.appentxt}</h2>
+						<div class="app-downlist">
+						{if condition="$mxprost['mxprocms']['s4']['android'] eq 1"}   
+						<a href="{$mxprost.mxprocms.s4.androidurl}" target="_blank" title="{$mxprost.mxprocms.s4.androidtxt}" class="app-downlist-go"><i class="{$mxprost.mxprocms.s4.androidicon}"></i>{$mxprost.mxprocms.s4.androidtxt}</a>
+						{/if}
+						{if condition="$mxprost['mxprocms']['s4']['ios'] eq 1"}   
+						<a href="{$mxprost.mxprocms.s4.iosurl}" target="_blank" class="app-downlist-go" title="{$mxprost.mxprocms.s4.iostxt}"><i class="{$mxprost.mxprocms.s4.iosicon}"></i>{$mxprost.mxprocms.s4.iostxt}</a>
+						{/if}
+						{if condition="$mxprost['mxprocms']['s4']['win'] eq 1"}   
+						<a href="{$mxprost.mxprocms.s4.winurl}" target="_blank" class="app-downlist-go" title="{$mxprost.mxprocms.s4.wintxt}"><i class="{$mxprost.mxprocms.s4.winicon}"></i>{$mxprost.mxprocms.s4.wintxt}</a>
+						{/if}
+					</div>
+					</div>
+					<div class="app-pic">
+						<div class="app-qrcode"><img src="{:mac_url_img($mxprost.mxprocms.s4.appewm)}" width="180" height="180"></div>
+						<div class="app-pic-list">
+							<div class="app-pic-list-poster"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-96ab2c86-de05-489d-884b-fd9074c04c32/68237c04-efc1-4817-adbb-c1abbb84fb46.png"></div>
+							<div class="app-pic-list-poster"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-96ab2c86-de05-489d-884b-fd9074c04c32/68237c04-efc1-4817-adbb-c1abbb84fb46.png"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  {include file="public/foot"}
+</div>
+</body>
+</html>

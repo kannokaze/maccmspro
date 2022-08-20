@@ -1,0 +1,1722 @@
+{include file="../../../application/admin/view/public/head" /}
+
+<?php $mctheme = parse_ini_file(ROOT_PATH . 'template/default/info.ini'); ?>
+<?php $hlbg = ROOT_PATH . 'template/default/asset/admin/hlbg.jpg'; ?>
+
+<div class="page-container">
+    <div class="showpic" style="display:none;"><img class="showpic_img" width="auto" height="100"></div>
+
+    <form class="layui-form" method="post" action="">
+        <div class="mainBox">
+          <div class="main-container">
+            <input type="hidden" name="__token__" value="{$Request.token}" />
+            <div class="layui-tab layui-tab-brief" lay-filter="tb1">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">{:lang('admin/tpl/config/desc1')}</li>
+                    <li>{:lang('admin/tpl/config/desc2')}</li>
+                    <li>{:lang('admin/tpl/config/desc3')}</li>
+                    <li>{:lang('admin/tpl/config/desc4')}</li>
+                    <li>{:lang('admin/tpl/config/desc5')}</li>
+                    <li>{:lang('admin/tpl/config/desc6')}</li>
+                    <li>{:lang('admin/tpl/config/desc7')}</li>
+                    <li>{:lang('admin/tpl/config/desc8')}</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/desc1')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc10')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[logo][bpic]" placeholder="{:lang('admin/tpl/config/desc11')}" value="{$tplconfig['theme']['logo']['bpic']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[logo][bpic]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc13')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc14')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[logo][wpic]" placeholder="{:lang('admin/tpl/config/desc15')}" value="{$tplconfig['theme']['logo']['wpic']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[logo][wpic]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc16')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc17')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[logo][icon]" placeholder="{:lang('admin/tpl/config/desc18')}" value="{$tplconfig['theme']['logo']['icon']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[logo][icon]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc19')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc21')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[logo][webapp]" placeholder="{:lang('admin/tpl/config/desc22')}" value="{$tplconfig['theme']['logo']['webapp']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[logo][webapp]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc20')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc23')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[lazy]" placeholder="{:lang('admin/tpl/config/desc24')}" value="{$tplconfig['theme']['lazy']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[lazy]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc25')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc26')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[tj][btn]" value="0" title="{:lang('admin/tpl/config/desc27')}" {if condition="$tplconfig['theme']['tj']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[tj][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['tj']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc29')}</div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc30')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[head][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/desc32')}">{$tplconfig['theme']['head']['text']}</textarea>
+                            </div>
+                            </div><br>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[foot][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/desc33')}">{$tplconfig['theme']['foot']['text']}</textarea>
+                            </div>
+                            </div>
+                       </div>
+                    </fieldset>
+                   </div>
+                   <div class="layui-tab-item">
+                   <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/desc34')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc35')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[type][hom]" placeholder="{:lang('admin/tpl/config/desc36')}" value="{$tplconfig['theme']['type']['hom']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc37')}</div>
+                            </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc38')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[vod][hnum]">
+                                    <option value="6" {if condition="$tplconfig['theme']['vod']['hnum'] eq '6'"}selected {/if}>{:lang('admin/tpl/config/desc39')}</option>
+                                    <option value="12" {if condition="$tplconfig['theme']['vod']['hnum'] eq '12'"}selected {/if}>{:lang('admin/tpl/config/desc40')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc41')}</div>
+                       </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/desc42')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc43')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[type][meunbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['type']['meunbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[type][meunbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['type']['meunbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/desc46')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[type][meunid]" placeholder="{:lang('admin/tpl/config/desc51')}" value="{$tplconfig['theme']['type']['meunid']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc47')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/desc48')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[type][meunys]">
+                                    <option value="one" {if condition="$tplconfig['theme']['type']['meunys'] eq 'one'"}selected {/if}>{:lang('admin/tpl/config/desc49')}</option>
+                                    <option value="two" {if condition="$tplconfig['theme']['type']['meunys'] eq 'two'"}selected {/if}>{:lang('admin/tpl/config/desc50')}</option>
+                                </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title1')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title2')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title3')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[notice][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['notice']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[notice][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['notice']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title5')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[notice][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/title6')}">{$tplconfig['theme']['notice']['text']}</textarea>
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title7')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[tips][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['tips']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[tips][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['tips']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title9')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[tips][title]" placeholder="{:lang('admin/tpl/config/title10')}" value="{$tplconfig['theme']['tips']['title']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title11')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[tips][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/title12')}">{$tplconfig['theme']['tips']['text']}</textarea>
+                            </div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title13')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[hotvod][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['hotvod']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[hotvod][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['hotvod']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title15')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[hotvod][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['hotvod']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title18')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title19')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[hotvod][num]">
+                                    <option value="6" {if condition="$tplconfig['theme']['hotvod']['num'] eq '6'"}selected {/if}>{:lang('admin/tpl/config/desc39')}</option>
+                                    <option value="12" {if condition="$tplconfig['theme']['hotvod']['num'] eq '12'"}selected {/if}>{:lang('admin/tpl/config/desc40')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title20')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title21')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[art][hbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['art']['hbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[art][hbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['art']['hbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title17')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[art][htitle]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['art']['htitle']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                        </div>
+
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title27')}</legend>
+                       <div class="layui-field-box">
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[topic][hbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['topic']['hbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[topic][hbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['topic']['hbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title29')}</div>
+                        </div>
+                           <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                               <div class="layui-input-inline w200">
+                                   <input type="text" name="theme[topic][htitle]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['topic']['htitle']}" class="layui-input">
+                               </div>
+                               <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                           </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title33')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[topic][hnum]">
+                                    <option value="6" {if condition="$tplconfig['theme']['topic']['hnum'] eq '6'"}selected {/if}>{:lang('admin/tpl/config/desc39')}</option>
+                                    <option value="12" {if condition="$tplconfig['theme']['topic']['hnum'] eq '12'"}selected {/if}>{:lang('admin/tpl/config/desc40')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title34')}</div>
+                        </div>
+                        </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title35')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[actor][hbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['actor']['hbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[actor][hbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['actor']['hbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title36')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title37')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[actor][id]" placeholder="{:lang('admin/tpl/config/title38')}" value="{$tplconfig['theme']['actor']['id']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title39')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[actor][htitle]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['actor']['htitle']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/title43')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[rank][hbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['rank']['hbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[rank][hbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['rank']['hbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title46')}</label>
+                            <div class="layui-input-inline w200">
+                                <select name="theme[rank][hby]">
+                                    <option value="week" {if condition="$tplconfig['theme']['rank']['hby'] eq 'week'"}selected {/if}>{:lang('admin/tpl/config/title47')}</option>
+                                    <option value="month" {if condition="$tplconfig['theme']['rank']['hby'] eq 'month'"}selected {/if}>{:lang('admin/tpl/config/title48')}</option>
+                                    <option value="all" {if condition="$tplconfig['theme']['rank']['hby'] eq 'all'"}selected {/if}>{:lang('admin/tpl/config/title49')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title50')}</div>
+                         </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip1')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rank][hid]" placeholder="{:lang('admin/tpl/config/tip2')}" value="{$tplconfig['theme']['rank']['hid']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip3')}</div>
+                        </div>
+
+                           <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                               <div class="layui-input-inline w200">
+                                   <input type="text" name="theme[rank][htitle]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['rank']['htitle']}" class="layui-input">
+                               </div>
+                               <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                           </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/tip7')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title14')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[links][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['links']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[links][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['links']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[links][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['links']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip13')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[links][num]" placeholder="{:lang('admin/tpl/config/tip14')}" value="{$tplconfig['theme']['links']['num']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip15')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                   </div>
+                    <div class="layui-tab-item">
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/tip16')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/tip17')}</label>
+                                <div class="layui-input-inline w200">
+                                    <input type="radio" name="theme[banner][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['banner']['btn'] eq 0"}checked {/if}>
+                                    <input type="radio" name="theme[banner][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['banner']['btn'] eq 1"}checked {/if}>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip18')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/tip19')}</label>
+                                <div class="layui-input-inline w200">
+                                    <input type="radio" name="theme[lbbanner][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['lbbanner']['btn'] eq 0"}checked {/if}>
+                                    <input type="radio" name="theme[lbbanner][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['lbbanner']['btn'] eq 1"}checked {/if}>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip20')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/tip21')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[banner][ms]">
+                                    <option value="small" {if condition="$tplconfig['theme']['banner']['ms'] eq 'small'"}selected {/if}>{:lang('admin/tpl/config/tip22')}</option>
+                                    <option value="big" {if condition="$tplconfig['theme']['banner']['ms'] eq 'big'"}selected {/if}>{:lang('admin/tpl/config/tip23')}</option>
+                                </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip24')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip25')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[banner][smbg]">
+                                    <option value="0" {if condition="$tplconfig['theme']['banner']['smbg'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['banner']['smbg'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[banner][bgstyle]" placeholder="{:lang('admin/tpl/config/tip28')}" value="{$tplconfig['theme']['banner']['bgstyle']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux" style="margin-left: 130px;">{:lang('admin/tpl/config/tip29')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/tip30')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip31')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[search][text]" placeholder="{:lang('admin/tpl/config/tip32')}" value="{$tplconfig['theme']['search']['text']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip33')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/tip34')}</label>
+                                <div class="layui-input-inline w200">
+                                    <input type="radio" name="theme[search][lxbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['search']['lxbtn'] eq 0"}checked {/if}>
+                                    <input type="radio" name="theme[search][lxbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['search']['lxbtn'] eq 1"}checked {/if}>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/tip36')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip37')}</label>
+                            <div class="layui-input-inline w150">
+                                <input type="text" name="theme[type][ht]" placeholder="{:lang('admin/tpl/config/tip38')}" value="{$tplconfig['theme']['type']['ht']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip39')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip40')}</label>
+                            <div class="layui-input-inline w150">
+                                <input type="text" name="theme[type][ho]" placeholder="{:lang('admin/tpl/config/tip41')}" value="{$tplconfig['theme']['type']['ho']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip42')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip43')}</label>
+                            <div class="layui-input-inline w150">
+                                <input type="text" name="theme[type][hb]" placeholder="{:lang('admin/tpl/config/tip41')}" value="{$tplconfig['theme']['type']['hb']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip45')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/tip46')}</label>
+                            <div class="layui-input-inline w150">
+                                <input type="text" name="theme[type][zb]" placeholder="{:lang('admin/tpl/config/tip41')}" value="{$tplconfig['theme']['type']['zb']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/tip48')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/tip49')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/tip50')}</label>
+                                    <div class="layui-input-inline w150">
+                                        <select name="theme[vod][num]">
+                                        <option value="6" {if condition="$tplconfig['theme']['vod']['num'] eq '6'"}selected {/if}>{:lang('admin/tpl/config/desc39')}</option>
+                                        <option value="12" {if condition="$tplconfig['theme']['vod']['num'] eq '12'"}selected {/if}>{:lang('admin/tpl/config/desc40')}</option>
+                                    </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key1')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key2')}</legend>
+                       <div class="layui-field-box">
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key3')}</label>
+                            <div class="layui-input-inline w60">
+                                <input type="text" name="theme[play][height]" placeholder="56.25" value="{$tplconfig['theme']['play']['height']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key4')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key5')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[play][adbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['play']['adbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[play][adbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['play']['adbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key6')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key7')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[play][nbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['play']['nbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[play][nbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['play']['nbtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key9')}</label>
+                            <div class="layui-input-inline w500">
+                                <textarea name="theme[play][notice]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/key14')}">{$tplconfig['theme']['play']['notice']}</textarea>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key10')}：&lt;li&gt;{:lang('admin/tpl/config/key11')}&lt;/li&gt;&lt;li&gt;{:lang('admin/tpl/config/key12')}&lt;/li&gt;，{:lang('admin/tpl/config/key13')}</div>
+                        </div>
+                        </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key15')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/key16')}</label>
+                        <div class="layui-input-inline w500">
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="a" title="{:lang('admin/tpl/config/key17')}" {if condition="strpos($tplconfig['theme']['show']['filter'],'a') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="b" title="{:lang('admin/tpl/config/key18')}" {if condition="strpos($tplconfig['theme']['show']['filter'],'b') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="c" title="{:lang('admin/tpl/config/key19')}" {if condition="strpos($tplconfig['theme']['show']['filter'],'c') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="d" title="{:lang('admin/tpl/config/key20')}" {if condition="strpos($tplconfig['theme']['show']['filter'],'d') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="e" title="{:lang('admin/tpl/config/key21')}" {if condition="strpos($tplconfig['theme']['show']['filter'],'e') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[show][filter][]" value="f" title="{:lang('admin/tpl/config/key22')}" checked disabled>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key23')}</div>
+                        </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key24')}</legend>
+                       <div class="layui-field-box">
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key25')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[playlink][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['playlink']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[playlink][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['playlink']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key26')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key27')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key28')}</label>
+                            <div class="layui-input-inline w200">
+                                <select name="theme[rank][vby]">
+                                    <option value="week" {if condition="$tplconfig['theme']['rank']['vby'] eq 'week'"}selected {/if}>{:lang('admin/tpl/config/title47')}</option>
+                                    <option value="month" {if condition="$tplconfig['theme']['rank']['vby'] eq 'month'"}selected {/if}>{:lang('admin/tpl/config/title48')}</option>
+                                    <option value="all" {if condition="$tplconfig['theme']['rank']['vby'] eq 'all'"}selected {/if}>{:lang('admin/tpl/config/title49')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key29')}</div>
+                         </div>
+                     </fieldset>
+                     </div>
+                   <div class="layui-tab-item">
+                   <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key30')}</legend>
+                       <div class="layui-field-box">
+                           <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/key31')}</label>
+                               <div class="layui-input-block"><blockquote class="layui-elem-quote layui-quote-nm" style="padding: 8px;">{:lang('admin/tpl/config/key32')}</blockquote>
+                               </div>
+                           </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key34')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][id]" placeholder="{:lang('admin/tpl/config/key37')}" value="{$tplconfig['theme']['nav']['id']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key35')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key36')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[nav][zdybtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['nav']['zdybtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[nav][zdybtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['nav']['zdybtn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key38')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/key39')}</legend>
+                       <div class="layui-field-box">
+                               <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/key31')}</label>
+                               <div class="layui-input-block"><blockquote class="layui-elem-quote layui-quote-nm" style="padding: 8px;">{:lang('admin/tpl/config/key41')}</blockquote>
+                               </div>
+                           </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key42')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[nav][zdybtn1]">
+                                    <option value="0" {if condition="$tplconfig['theme']['nav']['zdybtn1'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['nav']['zdybtn1'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[nav][zdyname1]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['nav']['zdyname1']}" class="layui-input author.qq362695000">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdylink1]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['nav']['zdylink1']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdypic1]" placeholder="{:lang('admin/tpl/config/key47')}" value="{$tplconfig['theme']['nav']['zdypic1']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[nav][zdypic1]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key48')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key49')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[nav][zdybtn2]">
+                                    <option value="0" {if condition="$tplconfig['theme']['nav']['zdybtn2'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['nav']['zdybtn2'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[nav][zdyname2]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['nav']['zdyname2']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdylink2]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['nav']['zdylink2']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdypic2]" placeholder="{:lang('admin/tpl/config/key47')}" value="{$tplconfig['theme']['nav']['zdypic2']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[nav][zdypic2]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key48')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/field4')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[nav][zdybtn3]">
+                                    <option value="0" {if condition="$tplconfig['theme']['nav']['zdybtn3'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['nav']['zdybtn3'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[nav][zdyname3]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['nav']['zdyname3']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdylink3]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['nav']['zdylink3']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdypic3]" placeholder="{:lang('admin/tpl/config/key47')}" value="{$tplconfig['theme']['nav']['zdypic3']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[nav][zdypic3]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key48')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/field9')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[nav][zdybtn4]">
+                                    <option value="0" {if condition="$tplconfig['theme']['nav']['zdybtn4'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['nav']['zdybtn4'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[nav][zdyname4]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['nav']['zdyname4']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdylink4]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['nav']['zdylink4']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[nav][zdypic4]" placeholder="{:lang('admin/tpl/config/key47')}" value="{$tplconfig['theme']['nav']['zdypic4']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[nav][zdypic4]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key48')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/field14')}</legend>
+                       <div class="layui-field-box">
+                           <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/key31')}</label>
+                               <div class="layui-input-block"><blockquote class="layui-elem-quote layui-quote-nm" style="padding: 8px;">{:lang('admin/tpl/config/field15')}</blockquote>
+                               </div>
+                           </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/field16')}</label>
+                        <div class="layui-input-inline w600">
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="a" title="{:lang('admin/tpl/config/field17')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'a') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="b" title="{:lang('admin/tpl/config/field18')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'b') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="c" title="{:lang('admin/tpl/config/field19')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'c') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="d" title="{:lang('admin/tpl/config/field20')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'d') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="e" title="{:lang('admin/tpl/config/field21')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'e') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="f" title="APP" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'f') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="g" title="QQ" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'g') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="h" title="{:lang('admin/tpl/config/field22')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'h') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[rtnav][ym][]" value="i" title="{:lang('admin/tpl/config/field23')}" {if condition="strpos($tplconfig['theme']['rtnav']['ym'],'i') !==false"}checked {/if}>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/field24')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key42')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[rtnav][zdybtn1]">
+                                    <option value="0" {if condition="$tplconfig['theme']['rtnav']['zdybtn1'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['rtnav']['zdybtn1'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[rtnav][zdyname1]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['rtnav']['zdyname1']}" class="layui-input author.qq362695000">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rtnav][zdylink1]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['rtnav']['zdylink1']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key33')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key49')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[rtnav][zdybtn2]">
+                                    <option value="0" {if condition="$tplconfig['theme']['rtnav']['zdybtn2'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['rtnav']['zdybtn2'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[rtnav][zdyname2]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['rtnav']['zdyname2']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rtnav][zdylink2]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['rtnav']['zdylink2']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/key33')}</div>
+                        </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/field30')}</legend>
+                       <div class="layui-field-box">
+                           <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/key31')}</label>
+                               <div class="layui-input-block"><blockquote class="layui-elem-quote layui-quote-nm" style="padding: 8px;">{:lang('admin/tpl/config/field31')}</blockquote>
+                               </div>
+                           </div>
+                           <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/field32')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[fnav][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['fnav']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[fnav][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['fnav']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key34')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[fnav][id]" placeholder="{:lang('admin/tpl/config/field35')}" value="{$tplconfig['theme']['fnav']['id']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/field36')}</div>
+                            </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/field37')}</label>
+                        <div class="layui-input-inline w600">
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="h" title="{:lang('admin/tpl/config/field38')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'h') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="a" title="{:lang('admin/tpl/config/field39')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'a') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="b" title="{:lang('admin/tpl/config/field40')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'b') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="c" title="{:lang('admin/tpl/config/field41')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'c') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="d" title="{:lang('admin/tpl/config/field42')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'d') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="f" title="{:lang('admin/tpl/config/field43')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'f') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="g" title="{:lang('admin/tpl/config/field44')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'g') !==false"}checked {/if}>
+                            <input type="checkbox" lay-skin="primary" name="theme[fnav][ym][]" value="r" title="{:lang('admin/tpl/config/field45')}" {if condition="strpos($tplconfig['theme']['fnav']['ym'],'r') !==false"}checked {/if}>
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/field46')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key42')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[fnav][zdybtn1]">
+                                    <option value="0" {if condition="$tplconfig['theme']['fnav']['zdybtn1'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['fnav']['zdybtn1'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[fnav][zdyname1]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['fnav']['zdyname1']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[fnav][zdylink1]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['fnav']['zdylink1']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/field49')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key49')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[fnav][zdybtn2]">
+                                    <option value="0" {if condition="$tplconfig['theme']['fnav']['zdybtn2'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['fnav']['zdybtn2'] eq 1"}selected {/if}>{:lang('admin/tpl/config/tip27')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[fnav][zdyname2]" placeholder="{:lang('admin/tpl/config/key45')}" value="{$tplconfig['theme']['fnav']['zdyname2']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[fnav][zdylink2]" placeholder="{:lang('admin/tpl/config/key46')}" value="{$tplconfig['theme']['fnav']['zdylink2']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/field49')}</div>
+                        </div>
+                       </div>
+                    </fieldset>
+                   </div>
+                   <div class="layui-tab-item">
+                   <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/field50')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                               <label class="layui-form-label">{:lang('admin/tpl/config/key31')}</label>
+                               <div class="layui-input-block"><blockquote class="layui-elem-quote layui-quote-nm" style="padding: 8px;">{:lang('admin/tpl/config/element1')}</blockquote>
+                               </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element2')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[share][bdbtn]">
+                                    <option value="0" {if condition="$tplconfig['theme']['share']['bdbtn'] eq 0"}selected {/if}>{:lang('admin/tpl/config/desc27')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['share']['bdbtn'] eq 1"}selected {/if}>{:lang('admin/tpl/config/desc28')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element3')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element4')}</label>
+                            <div class="layui-input-inline w70">
+                                <select name="theme[share][api]">
+                                    <option value="sina" {if condition="$tplconfig['theme']['share']['api'] eq 'sina'"}selected {/if}>{:lang('admin/tpl/config/element5')}</option>
+                                    <option value="bd" {if condition="$tplconfig['theme']['share']['api'] eq 'bd'"}selected {/if}>{:lang('admin/tpl/config/element6')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element7')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element8')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[share][link]" placeholder="{:lang('admin/tpl/config/element12')}：http://www.maccms.pro" value="{$tplconfig['theme']['share']['link']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element9')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element10')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[share][apiurl]" placeholder="{:lang('admin/tpl/config/element11')}" value="{$tplconfig['theme']['share']['apiurl']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element13')}，<a target="_blank" title="{:lang('admin/tpl/config/element17')}" href="https://open.weibo.com/wiki/2/short_url/shorten">{:lang('admin/tpl/config/element14')}</a></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element15')}</label>
+                            <div class="layui-input-inline w300">
+                                <input type="text" name="theme[share][tok]" placeholder="{:lang('admin/tpl/config/element16')}" value="{$tplconfig['theme']['share']['tok']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <select name="theme[share][term]">
+                                    <option value="long" {if condition="$tplconfig['theme']['share']['term'] eq 'long'"}selected {/if}>{:lang('admin/tpl/config/element18')}</option>
+                                    <option value="one" {if condition="$tplconfig['theme']['share']['term'] eq 'one'"}selected {/if}>{:lang('admin/tpl/config/element19')}</option>
+                                </select>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element20')}，<a target="_blank" title="{:lang('admin/tpl/config/element22')}" href="https://dwz.cn/console/userinfo">{:lang('admin/tpl/config/element21')}</a></div>
+                        </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/element23')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element24')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[qq][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['qq']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[qq][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['qq']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element26')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[qq][title]" placeholder="{:lang('admin/tpl/config/element27')}" value="{$tplconfig['theme']['qq']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element28')}</div>
+                        </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element29')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[qq][link]" placeholder="{:lang('admin/tpl/config/element30')}" value="{$tplconfig['theme']['qq']['link']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element31')}</div>
+                        </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/element32')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element33')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[weixin][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['weixin']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[weixin][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['weixin']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element35')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[weixin][btntext]" placeholder="{:lang('admin/tpl/config/element36')}" value="{$tplconfig['theme']['weixin']['btntext']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/element37')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element38')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[weixin][qrcode]" placeholder="{:lang('admin/tpl/config/element39')}" value="{$tplconfig['theme']['weixin']['qrcode']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline ">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[weixin][qrcode]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/title9')}</label>
+                        <div class="layui-input-inline w400">
+                            <input type="text" name="theme[weixin][title]" placeholder="{:lang('admin/tpl/config/element41')}" value="{$tplconfig['theme']['weixin']['title']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title11')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[weixin][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/element43')}">{$tplconfig['theme']['weixin']['text']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/element44')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element45')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[zans][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['zans']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[zans][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['zans']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element46')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="text" name="theme[zans][qrcode]" placeholder="{:lang('admin/tpl/config/element47')}" value="{$tplconfig['theme']['zans']['qrcode']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline ">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[zans][qrcode]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/title9')}</label>
+                        <div class="layui-input-inline w400">
+                            <input type="text" name="theme[zans][title]" placeholder="{:lang('admin/tpl/config/element41')}" value="{$tplconfig['theme']['zans']['title']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title11')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[zans][text]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/element43')}">{$tplconfig['theme']['zans']['text']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                    </fieldset>
+                    <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/element48')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/element49')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[apps][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['apps']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[apps][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['apps']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/element50')}</label>
+                        <div class="layui-input-inline w400">
+                            <input type="text" name="theme[apps][link]" placeholder="{:lang('admin/tpl/config/content1')}" value="{$tplconfig['theme']['apps']['link']}" class="layui-input">
+                        </div>
+                        </div>
+                       </div>
+                    </fieldset>
+                     </div>
+                     <div class="layui-tab-item">
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/content2')}</legend>
+                       <div class="layui-field-box">
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content3')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[rank][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['rank']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[rank][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['rank']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content4')}</div>
+                         </div>
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rank][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['rank']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content7')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content8')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rank][num]" placeholder="{:lang('admin/tpl/config/content9')}" value="{$tplconfig['theme']['rank']['num']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content10')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key34')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[rank][id]" placeholder="{:lang('admin/tpl/config/tip2')}" value="{$tplconfig['theme']['rank']['id']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content13')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/content14')}</legend>
+                       <div class="layui-field-box">
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content15')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[map][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['map']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[map][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['map']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content16')}</div>
+                         </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/title16')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[map][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['map']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/title26')}</div>
+                        </div>
+                         <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/key34')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[map][id]" placeholder="{:lang('admin/tpl/config/tip2')}" value="{$tplconfig['theme']['map']['id']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content21')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/content22')}</legend>
+                       <div class="layui-field-box">
+                               <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/content23')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[color][select]">
+                                    <option value="0" {if condition="$tplconfig['theme']['color']['select'] eq 0"}selected {/if}>{:lang('admin/tpl/config/content24')}</option>
+                                    <option value="green" {if condition="$tplconfig['theme']['color']['select'] eq 'green'"}selected {/if}>{:lang('admin/tpl/config/content25')}</option>
+                                    <option value="blue" {if condition="$tplconfig['theme']['color']['select'] eq 'blue'"}selected {/if}>{:lang('admin/tpl/config/content26')}</option>
+                                    <option value="pink" {if condition="$tplconfig['theme']['color']['select'] eq 'pink'"}selected {/if}>{:lang('admin/tpl/config/content27')}</option>
+                                    <option value="red" {if condition="$tplconfig['theme']['color']['select'] eq 'red'"}selected {/if}>{:lang('admin/tpl/config/content28')}</option>
+                                    <option value="gold" {if condition="$tplconfig['theme']['color']['select'] eq 'gold'"}selected {/if}>{:lang('admin/tpl/config/content29')}</option>
+                                </select>
+                                </div>
+                                <div class="layui-input-inline">
+                                <input type="radio" name="theme[color][sbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['color']['sbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[color][sbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['color']['sbtn'] eq 1"}checked {/if}>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content30')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/content31')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[color][ms]">
+                                    <option value="white" {if condition="$tplconfig['theme']['color']['ms'] eq 'white'"}selected {/if}>{:lang('admin/tpl/config/content32')}</option>
+                                    <option value="black" {if condition="$tplconfig['theme']['color']['ms'] eq 'black'"}selected {/if}>{:lang('admin/tpl/config/content33')}</option>
+                                </select>
+                                </div>
+                                <div class="layui-input-inline">
+                                <input type="radio" name="theme[color][mbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['color']['mbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[color][mbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['color']['mbtn'] eq 1"}checked {/if}>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content34')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content35')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[topic][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['topic']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="radio" name="theme[topic][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['topic']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[topic][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['topic']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content37')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content38')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[role][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['role']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="radio" name="theme[role][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['role']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[role][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['role']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content40')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content41')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[plot][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['plot']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="radio" name="theme[plot][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['plot']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[plot][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['plot']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content43')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content44')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[gbook][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['gbook']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content45')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/content46')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="text" name="theme[user][title]" placeholder="{:lang('admin/tpl/config/content42')}" value="{$tplconfig['theme']['user']['title']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/content47')}</div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">{:lang('admin/tpl/config/content48')}</label>
+                                <div class="layui-input-inline w200">
+                                    <select name="theme[font]">
+                                    <option value="0" {if condition="$tplconfig['theme']['font'] eq 0"}selected {/if}>{:lang('admin/tpl/config/content49')}</option>
+                                    <option value="1" {if condition="$tplconfig['theme']['font'] eq 1"}selected {/if}>{:lang('admin/tpl/config/content50')}</option>
+                                </select>
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word1')}</div>
+                            </div>
+                       </div>
+                    </fieldset>
+                     </div>
+                     <div class="layui-tab-item">
+                     <blockquote class="layui-elem-quote">
+                            <p>{:lang('admin/tpl/config/word2')}</p>
+                     </blockquote>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word3')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][index_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['index_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][index_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['index_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][index_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['index_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word4')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][detail_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['detail_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][detail_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['detail_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][detail_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['detail_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word5')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][play_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['play_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][play_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['play_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][play_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['plays_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word9')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][down_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['down_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][down_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['down_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][down_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['down_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word10')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][arti_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['arti_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][arti_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['arti_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][arti_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['arti_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word11')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][artd_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['artd_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][artd_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['artd_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][artd_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['artd_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word12')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topic_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['topic_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topic_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['topic_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topic_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['topic_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word13')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topicd_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['topicd_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topicd_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['topicd_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][topicd_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['topicd_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                       <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word14')}</legend>
+                       <div class="layui-field-box">
+                             <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word6')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][website_name]" placeholder="{:lang('admin/tpl/config/word6')}" value="{$tplconfig['theme']['seos']['topicd_name']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word7')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][website_key]" placeholder="{:lang('admin/tpl/config/word7')}" value="{$tplconfig['theme']['seos']['topicd_key']}" class="layui-input">
+                            </div>
+                            </div>
+                            <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word8')}</label>
+                            <div class="layui-input-inline w600">
+                                <input type="text" name="theme[seos][website_des]" placeholder="{:lang('admin/tpl/config/word8')}" value="{$tplconfig['theme']['seos']['topicd_des']}" class="layui-input">
+                            </div>
+                            </div>
+                       </div>
+                       </fieldset>
+                     </div>
+                     <div class="layui-tab-item">
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word15')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w400">
+                                <input type="radio" name="theme[ads][btn]" value="0" title="{:lang('admin/tpl/config/word16')}" {if condition="$tplconfig['theme']['ads']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][btn]" value="1" title="{:lang('admin/tpl/config/word17')}" {if condition="$tplconfig['theme']['ads']['btn'] eq 1"}checked {/if}>
+                                <input type="radio" name="theme[ads][btn]" value="2" title="{:lang('admin/tpl/config/word18')}" {if condition="$tplconfig['theme']['ads']['btn'] eq 2"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word19')}</div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word20')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w300">
+                                <input type="radio" name="theme[ads][bottom][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['bottom']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][bottom][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['bottom']['btn'] eq 1"}checked {/if}>
+                                <input type="radio" name="theme[ads][bottom][btn]" value="2" title="{:lang('admin/tpl/config/word21')}" {if condition="$tplconfig['theme']['ads']['bottom']['btn'] eq 2"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word22')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][bottom][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['bottom']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word23')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][all][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['all']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][all][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['all']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][all][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['all']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word25')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][double][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['double']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][double][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['double']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word26')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word27')}</label>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[ads][double][w]" placeholder="{:lang('admin/tpl/config/word28')}" value="{$tplconfig['theme']['ads']['double']['w']}" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline w100">
+                                <input type="text" name="theme[ads][double][h]" placeholder="{:lang('admin/tpl/config/word29')}" value="{$tplconfig['theme']['ads']['double']['h']}" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word30')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][double][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['double']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word32')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][vod_w][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['vod_w']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][vod_w][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['vod_w']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][vod_w][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['vod_w']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word33')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][vod_r][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['vod_r']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][vod_r][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['vod_r']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word34')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][vod_r][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['vod_r']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word35')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][play][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['play']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][play][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['play']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word48')}</label>
+                            <div class="layui-input-inline w200" style="margin: 0;">
+                                <input type="radio" name="theme[ads][play][tbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['play']['tbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][play][tbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['play']['tbtn'] eq 1"}checked {/if}>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word36')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][play][title]" placeholder="{:lang('admin/tpl/config/word36')}" value="{$tplconfig['theme']['ads']['play']['title']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word49')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][play][link]" placeholder="{:lang('admin/tpl/config/word49')}" value="{$tplconfig['theme']['ads']['play']['link']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word37')}</label>
+                            <div class="layui-input-inline w300">
+                                <input type="text" name="theme[ads][play][pic]" placeholder="{:lang('admin/tpl/config/word38')}" value="{$tplconfig['theme']['ads']['play']['pic']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline ">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[ads][play][pic]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word39')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][search_v][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['search_v']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][search_v][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['search_v']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word48')}</label>
+                            <div class="layui-input-inline w200" style="margin: 0;">
+                                <input type="radio" name="theme[ads][search_v][tbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['search_v']['tbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][search_v][tbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['search_v']['tbtn'] eq 1"}checked {/if}>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word36')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][search_v][title]" placeholder="{:lang('admin/tpl/config/word36')}" value="{$tplconfig['theme']['ads']['search_v']['title']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word40')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][search_v][sub]" placeholder="{:lang('admin/tpl/config/word41')}" value="{$tplconfig['theme']['ads']['search_v']['sub']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word49')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][search_v][link]" placeholder="{:lang('admin/tpl/config/word49')}" value="{$tplconfig['theme']['ads']['search_v']['link']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word37')}</label>
+                            <div class="layui-input-inline w300">
+                                <input type="text" name="theme[ads][search_v][pic]]" placeholder="{:lang('admin/tpl/config/word38')}" value="{$tplconfig['theme']['ads']['search_v']['pic']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline ">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[ads][search_v][pic]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word43')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][art_w][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['art_w']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][art_w][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['art_w']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][art_w][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['art_w']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word44')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][art_r][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['art_r']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][art_r][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['art_r']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/word45')}</div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word31')}</label>
+                            <div class="layui-input-block">
+                                <textarea name="theme[ads][art_r][content]" class="layui-textarea"  placeholder="{:lang('admin/tpl/config/word24')}">{$tplconfig['theme']['ads']['art_r']['content']}</textarea>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                     <fieldset class="layui-elem-field">
+                       <legend>{:lang('admin/tpl/config/word46')}</legend>
+                       <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word47')}</label>
+                            <div class="layui-input-inline w200">
+                                <input type="radio" name="theme[ads][artlist][btn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['artlist']['btn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][artlist][btn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['artlist']['btn'] eq 1"}checked {/if}>
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">{:lang('admin/tpl/config/desc45')}</div>
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word48')}</label>
+                            <div class="layui-input-inline w200" style="margin: 0;">
+                                <input type="radio" name="theme[ads][artlist][tbtn]" value="0" title="{:lang('admin/tpl/config/desc44')}" {if condition="$tplconfig['theme']['ads']['artlist']['tbtn'] eq 0"}checked {/if}>
+                                <input type="radio" name="theme[ads][artlist][tbtn]" value="1" title="{:lang('admin/tpl/config/desc28')}" {if condition="$tplconfig['theme']['ads']['artlist']['tbtn'] eq 1"}checked {/if}>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word36')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][artlist][title]" placeholder="{:lang('admin/tpl/config/word36')}" value="{$tplconfig['theme']['ads']['artlist']['title']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">{:lang('admin/tpl/config/word49')}</label>
+                        <div class="layui-input-inline w300">
+                            <input type="text" name="theme[ads][artlist][link]" placeholder="{:lang('admin/tpl/config/word49')}" value="{$tplconfig['theme']['ads']['artlist']['link']}" class="layui-input">
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/tpl/config/word37')}</label>
+                            <div class="layui-input-inline w300">
+                                <input type="text" name="theme[ads][artlist][pic]" placeholder="{:lang('admin/tpl/config/word38')}" value="{$tplconfig['theme']['ads']['artlist']['pic']}" class="layui-input upload-input">
+                            </div>
+                            <div class="layui-input-inline ">
+                                <button type="button" class="pear-btn pear-btn-primary pear-btn-md layui-upload" lay-data="{data:{thumb:0,thumb_class:'theme[ads][artlist][pic]'}}" id="upload1">{:lang('admin/tpl/config/desc12')}</button>
+                            </div>
+                        </div>
+                       </div>
+                     </fieldset>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="button-container">
+            <button
+              type="submit"
+              class="pear-btn pear-btn-primary pear-btn-sm"
+              lay-submit=""
+              lay-filter="formSubmit"
+              data-child=""
+            >
+              <i class="layui-icon layui-icon-ok"></i>
+              {:lang('btn_save')}
+            </button>
+          </div>
+        </div>
+      </form>
+</div>
+{include file="../../../application/admin/view/public/foot" /}
+<script type="text/javascript" src="{:MAC_BASE_PATH}/static/js/admin_common.js"></script>
+<script type="text/javascript">
+    layui.use(['form','upload', 'layer'], function(){
+        // 操作对象
+        var form = layui.form
+                , layer = layui.layer
+                , upload = layui.upload;
+
+        form.on('radio(cache_type)',function(data){
+            $('.row_cache_server').hide();
+           if(data.value=='memcache' || data.value=='redis' || data.value=='memcached'){
+               $('.row_cache_server').show();
+           }
+        });
+        upload.render({
+            elem: '.layui-upload'
+            ,url: "{:url('upload/upload')}?flag=site"
+            ,method: 'post'
+            ,before: function(input) {
+                layer.msg("{:lang('admin/tpl/config/word51')}", {time:3000000});
+            },done: function(res, index, upload) {
+                var obj = this.item;
+                if (res.code == 0) {
+                    layer.msg(res.msg);
+                    return false;
+                }
+                layer.closeAll();
+                var input = $(obj).parent().parent().find('.upload-input');
+                if ($(obj).attr('lay-type') == 'image') {
+                    input.siblings('img').attr('src', res.data.file).show();
+                }
+                input.val(res.data.file);
+
+                if(res.data.thumb_class !=''){
+                    $('.'+ res.data.thumb_class).val(res.data.thumb[0].file);
+                }
+            }
+        });
+        $('.upload-input').hover(function (e){
+            var e = window.event || e;
+            var imgsrc = $(this).val();
+            if(imgsrc.trim()==""){ return; }
+            var left = e.clientX+document.body.scrollLeft+20;
+            var top = e.clientY+document.body.scrollTop+20;
+            $(".showpic").css({left:left,top:top,display:""});
+            if(imgsrc.indexOf('://')<0){ imgsrc = ROOT_PATH + '/' + imgsrc;	} else{ imgsrc = imgsrc.replace('mac:','http:'); }
+            $(".showpic_img").attr("src", imgsrc);
+        },function (e){
+            $(".showpic").css("display","none");
+        });
+
+    });
+</script>
+</body>
+</html>

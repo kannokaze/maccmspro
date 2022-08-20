@@ -1,0 +1,57 @@
+    <div class="container-slide">
+    <div class="swiper swiper-big">
+            <div class="swiper-wrapper">
+                  {maccms:vod  type="all" order="'.$mxprost['mxprocms']['s3']['slideorder'].'" by="'.$mxprost['mxprocms']['s3']['slideby'].'" level="'.$mxprost['mxprocms']['s3']['slidetj'].'" num="'.$mxprost['mxprocms']['s3']['slidenum'].'"}
+                <div class="swiper-slide">
+                    <a href="{if condition="$vo.vod_jumpurl """}{$vo.vod_jumpurl}{elseif condition="$mxprost['mxprocms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="banner" style="background: url({$vo.vod_pic_slide|mac_url_img})center no-repeat;background-size: cover;">
+                    </a>
+                    <div class="mobile-v-info">
+                        <div class="v-title">
+                            <span>{$vo.vod_name}</span>
+                        </div>
+                        <div class="v-ins">
+                            <p>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</p>
+                            <p> {if condition="$mxprost['mxprocms']['s3']['slidefb'] eq 1"} {$vo.vod_blurb} {else} {$vo.vod_actor} {/if}</p>
+                        </div>
+                    </div>
+                </div>
+                  	{/maccms:vod}	
+            </div>
+        </div>
+        <div class="sm-swiper">
+            <div class="swiper swiper-small">
+                <div class="swiper-wrapper">
+                      {maccms:vod  type="all" order="'.$mxprost['mxprocms']['s3']['slideorder'].'" by="'.$mxprost['mxprocms']['s3']['slideby'].'" level="'.$mxprost['mxprocms']['s3']['slidetj'].'" num="'.$mxprost['mxprocms']['s3']['slidenum'].'"}
+                    <div class="swiper-slide">
+                         {if condition="$mxprost['mxprocms']['s3']['slidebill'] eq 1"}
+                            <div class="pic">
+                                <a href="{if condition="$vo.vod_jumpurl """}{$vo.vod_jumpurl}{elseif condition="$mxprost['mxprocms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}">
+                                    <img src="{$vo.vod_pic|mac_url_img}" alt="{$vo.vod_name}">
+                                </a>
+                            </div>
+                            {/if}
+                            <div class="title"><a href="{if condition="$vo.vod_jumpurl """}{$vo.vod_jumpurl}{elseif condition="$mxprost['mxprocms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}">{$vo.vod_name}</a></div>
+                            <div class="ins">
+                                <p>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</p>
+                                <p class="ins"> {if condition="$mxprost['mxprocms']['s3']['slidefb'] eq 1"} {$vo.vod_blurb} {else} {$vo.vod_actor} {/if}</p>
+                            </div>
+                    </div>
+                    	{/maccms:vod}
+                </div>
+            </div>
+            {if condition="$mxprost['mxprocms']['s3']['slidebill'] eq 1"}
+            <div class="swiper-button-prev"><svg rseat="712211_banner_left" width="20" height="20"
+                    xmlns="http://www.w3.org/2000/svg" class="qy20-h-carousel__arrow left" data-v-1ea95016="">
+                    <path
+                        d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm2.439 4.95a1.429 1.429 0 00-2.02 0L5.367 10l5.05 5.05.125.112c.56.444 1.378.407 1.896-.111l.11-.125a1.429 1.429 0 00-.11-1.896L9.409 10l3.03-3.03.11-.125a1.429 1.429 0 00-.11-1.896z" fill="#FFF" fill-rule="evenodd" data-v-1ea95016=""></path>
+                </svg></div>
+            <div class="swiper-button-next"><svg rseat="712211_banner_right" width="20" height="20"
+                    xmlns="http://www.w3.org/2000/svg" class="qy20-h-carousel__arrow right" data-v-1ea95016="">
+                    <path
+                        d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM7.561 4.95a1.429 1.429 0 012.02 0L14.633 10l-5.05 5.05-.125.112a1.429 1.429 0 01-1.896-.111l-.11-.125a1.429 1.429 0 01.11-1.896l3.03-3.03-3.03-3.03-.11-.125a1.429 1.429 0 01.11-1.896z"  fill="#FFF" fill-rule="evenodd" data-v-1ea95016=""></path>
+                </svg></div>
+                    {/if}    
+            <div class="swiper-pagination"></div>
+        </div>
+
+            </div>

@@ -1,0 +1,93 @@
+<div class="layui-tab-item">
+    <div class="layui-col-md12">
+         <div class="layui-card">
+            <div class="layui-card-header">公告设置</div>
+            <div class="layui-card-body" pad15="">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">弹窗公告</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s5][notice]" {if condition="$config['mxprocms']['s5']['notice'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+							<div class="layui-form-item">
+                    <label class="layui-form-label">公告标题</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="mxprocms[s5][noticetext]" value="{$config['mxprocms']['s5']['noticetext']}" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">弹窗公告显示的标题</div>
+                </div>	
+                			<div class="layui-form-item">
+                    <label class="layui-form-label">公告内容</label>
+                     <div class="layui-input-block w700">
+                            <textarea name="mxprocms[s5][noticecontent]" class="layui-textarea" placeholder="公告内容">{$config['mxprocms']['s5']['noticecontent']}</textarea>
+                        </div>
+                </div>
+            </div>
+        </div>
+                 <div class="layui-card">
+            <div class="layui-card-header">特色插件</div>
+            <div class="layui-card-body" pad15="">
+	        <div class="layui-form-item">
+                      <label class="layui-form-label">屏蔽F12</label>                        
+                        <div class="layui-input-inline w300">
+                            <input type="radio" name="mxprocms[s5][shier]" value="0" title="关闭" {if condition="$config['mxprocms']['s5']['shier'] eq 0"}checked {/if}>
+                            <input type="radio" name="mxprocms[s5][shier]" value="1" title="开启" {if condition="$config['mxprocms']['s5']['shier'] eq 1"}checked {/if}>
+                        </div>
+                    </div>
+                    
+                      <div class="layui-form-item">
+                      <label class="layui-form-label">屏蔽快捷键</label>                        
+                        <div class="layui-input-inline w300">
+                            <input type="radio" name="mxprocms[s5][ctrl]" value="0" title="关闭" {if condition="$config['mxprocms']['s5']['ctrl'] eq 0"}checked {/if}>
+                            <input type="radio" name="mxprocms[s5][ctrl]" value="1" title="开启" {if condition="$config['mxprocms']['s5']['ctrl'] eq 1"}checked {/if}>
+                        </div>
+                    </div>
+                    
+                        <div class="layui-form-item">
+                      <label class="layui-form-label">屏蔽右键</label>                        
+                        <div class="layui-input-inline w300">
+                            <input type="radio" name="mxprocms[s5][right]" value="0" title="关闭" {if condition="$config['mxprocms']['s5']['right'] eq 0"}checked {/if}>
+                            <input type="radio" name="mxprocms[s5][right]" value="1" title="开启" {if condition="$config['mxprocms']['s5']['right'] eq 1"}checked {/if}>
+                        </div>
+                    </div>
+                    
+                       <div class="layui-form-item">
+                      <label class="layui-form-label">禁止调试</label>                        
+                        <div class="layui-input-inline w300">
+                            <input type="radio" name="mxprocms[s5][mode]" value="0" title="关闭" {if condition="$config['mxprocms']['s5']['mode'] eq 0"}checked {/if}>
+                            <input type="radio" name="mxprocms[s5][mode]" value="1" title="开启" {if condition="$config['mxprocms']['s5']['mode'] eq 1"}checked {/if}>
+                        </div>
+                    </div>
+                    
+                       <div class="layui-form-item">
+                        <label class="layui-form-label">屏蔽提示信息：</label>
+                        <div class="layui-input-block w500">
+                            <textarea name="mxprocms[s5][pbtips]" class="layui-textarea"  placeholder="你知道的太多了">{$config['mxprocms']['s5']['pbtips']}</textarea>
+                        </div>
+                    </div>  
+  
+                     <div class="layui-form-item">
+                    <label class="layui-form-label">头部代码</label>
+                     <div class="layui-input-block w700">
+                            <textarea name="mxprocms[s5][tbdmtips]" class="layui-textarea" placeholder="支持填写html代码,例如某些统计站点需要验证meta标签等">{$config['mxprocms']['s5']['tbdmtips']}</textarea>
+                        </div>
+                </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">底部代码</label>
+                     <div class="layui-input-block w700">
+                            <textarea name="mxprocms[s5][dbdmtips]" class="layui-textarea" placeholder="支持填写html代码,例如统计代码">{$config['mxprocms']['s5']['dbdmtips']}</textarea>
+                        </div>
+                </div>
+                     <div class="layui-form-item">
+                    <label class="layui-form-label">自定义css</label>
+                     <div class="layui-input-block w700">
+                            <textarea name="mxprocms[s5][stylecss]" class="layui-textarea" placeholder="自定义css样式">{$config['mxprocms']['s5']['stylecss']}</textarea>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

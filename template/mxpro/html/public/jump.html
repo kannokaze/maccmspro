@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head> 
+    <title>系统提示......</title>
+   {include file="public/include"}
+</head>
+<body>
+ <div class="page list">
+   {include file="public/head"}   <!-- 头部 -->  
+<div class="main">
+<div class="content">
+<div class="mx-mac_msg_jump">
+<div class="msg_jump_tit">系统提示......</div>
+<div class="title">亲爱用户：</div>
+    <div class="text">{$msg}</div>
+    <div class="jump">页面自动 <a id="href" href="<?php echo($url);?>"><b class="bstyle">跳转</b></a> 等待时间： <b id="wait" class="bstyle"><?php echo($wait);?></b></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+    (function(){
+        var wait = document.getElementById('wait'),
+                href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+            var time = --wait.innerHTML;
+            if(time <= 0) {
+                location.href = href;
+                clearInterval(interval);
+            };
+        }, 1000);
+    })();
+</script>
+</body>
+</html>

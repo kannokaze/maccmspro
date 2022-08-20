@@ -1,0 +1,11 @@
+	                <div class="module">
+						<div class="module-heading">
+							<h2 class="module-title">{$mxprost.mxprocms.s4.liketext}</h2></div>
+						<div class="module-main {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}scroll-box{/if}">
+							<div class="module-items {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}module-poster-items-small scroll-content {else}module-poster-items-base {/if}">
+					{maccms:vod num="'.$mxprost['mxprocms']['s4']['likenum'].'" type="current" order="desc" by="time" year="'.$mxprost['mxprocms']['s4']['likeyear'].'"}	
+								{include file="block/vodbox"}
+								{/maccms:vod}
+							</div>
+						</div>
+					</div>

@@ -1,0 +1,80 @@
+{include file="../../../application/admin/view/public/head" /}
+<div class="page-container">
+    <form class="layui-form" method="post" action="{:url('domarketfeedback')}" style="width: 600px;text-align: center;margin: auto" enctype="multipart/form-data">
+        <input type="hidden" name="bind_id" value="{$info.id}" />
+        <input type="hidden" name="user_id" value="{$info.user_id}" />
+        <input type="hidden" name="type" value="{$type}" />
+        <div class="my-toolbar-box">
+            <div class="center mb10">
+                <fieldset class="layui-elem-field">
+                    <legend>{:lang('admin/addon/marketfeedback/desc1')}</legend>
+                    <div class="layui-field-box">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/addon/marketfeedback/desc2')}:</label>
+                            <div class="layui-input-block">
+                                <input name="name" type="text" value="{$info.name}" class="layui-input" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/addon/marketfeedback/desc3')}:</label>
+                            <div class="layui-input-block">
+                                <select name="version">
+                                    <option value="">{:lang('admin/addon/marketfeedback/desc4')}</option>
+                                    {volist name="version_history" id="vo"}
+                                    <option value="{$vo}">V{$vo}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/addon/marketfeedback/desc5')}：</label>
+                            <div class="layui-input-block">
+                                <textarea name="content" class="layui-textarea"  placeholder="0/300"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/addon/marketfeedback/desc6')}：</label>
+                            <div class="layui-input-block">
+                                <input type="file" class="pear-btn pear-btn-primary pear-btn-md layui-upload" name="images" />
+                            </div>
+                            <div style="clear: both"></div>
+                            <p>{:lang('admin/addon/marketfeedback/desc7')}</p>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">{:lang('admin/addon/marketfeedback/desc8')}：</label>
+                            <div class="layui-input-block">
+                                <input type="file" class="pear-btn pear-btn-primary pear-btn-md layui-upload" name="videos" />
+                            </div>
+                            <div style="clear: both"></div>
+                            <p>{:lang('admin/addon/marketfeedback/desc9')}</p>
+                        </div>
+                        
+                        <div class="layui-form-item" style="margin-top: 20px">
+                            <button type="submit" class="layui-btn"> {:lang('admin/addon/marketfeedback/desc10')} </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+</div>
+{include file="../../../application/admin/view/public/foot" /}
+
+<script type="text/javascript">
+    var url='';
+    layui.use(['form','laypage', 'layer','upload','element'], function() {
+        // 操作对象
+        var form = layui.form
+            , layer = layui.layer
+            , upload = layui.upload
+            ,element = layui.element;
+
+        return false;
+
+    });
+
+
+</script>
+
+</body>
+</html>

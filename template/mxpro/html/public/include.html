@@ -1,0 +1,58 @@
+<?php $file = 'template/mxpro/asset/admin/Mxpro.php'; $newfile = 'application/admin/controller/Mxpro.php'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $file = 'template/mxpro/asset/admin/mxprost.php'; $newfile = 'application/extra/mxprost.php'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $file = 'template/mxpro/asset/admin/mxprocms.html'; $newfile = 'application/admin/view/system/mxprocms.html'; if (file_exists($newfile)) {} else { copy($file,$newfile); } ?>
+<?php $mxprost = file_exists('application/extra/mxprost.php') ? require('application/extra/mxprost.php') : require(substr($maccms['path_tpl'], strlen($maccms['path'])).'asset/admin/mxprost=.php'); ?>
+{$mxprost.mxprocms.s5.tbdmtips}
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+<link rel="shortcut icon" href="{:mac_url_img($mxprost.mxprocms.s1.ico)}">
+<link rel="stylesheet" href="{$maccms.path}mxtheme/css/style.css" type="text/css">
+<link id="cssFile" rel="stylesheet" href="{$maccms.path}mxtheme/css/{$mxprost.mxprocms.s2.theme}.css" type="text/css">
+ <script>
+    function getCookieItem(name){
+        var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+        if(arr != null){ return decodeURIComponent(arr[2]); return null; }
+    }
+    let cookieItem = getCookieItem('mx_style')
+    if(cookieItem && cookieItem !=='white') {
+        document.querySelector('#cssFile').href = '/mxtheme/css/'+getCookieItem('mx_style')+'.css'
+    }
+</script>
+<link rel="stylesheet" href="{$maccms.path}mxtheme/css/swiper-bundle.min.css" type="text/css">
+<script src="{$maccms.path}mxtheme/js/jquery.min.js"></script>
+<script src="{$maccms.path}mxtheme/js/home.js"></script>
+<script src="{$maccms.path}mxtheme/js/jquery.lazyload.js"></script>
+<script src="{$maccms.path}static/js/jquery.cookie.js"></script>
+<script src="{$maccms.path}static/js/jquery.clipboard.js"></script>	
+<script type="text/javascript"  src="{$maccms.path}mxtheme/js/jquery.qrcode.min.js"></script>
+{if condition="$maccms.aid eq 15"}
+<script type="text/javascript">var vod_name='{$obj.vod_name}',vod_url=window.location.href,vod_part='{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}';</script>
+<script type="text/javascript"  src="{$maccms.path}mxtheme/js/history.js"></script>
+{/if}
+<script src="{$maccms.path}mxtheme/js/script.js"></script>	
+<script src="{$maccms.path}mxtheme/js/swiper-bundle.min.js"></script>	
+<script src="{$maccms.path}mxtheme/js/layer.min.js"></script>
+<link rel="stylesheet" href="{$maccms.path}mxtheme/js/theme/default/layer.css" type="text/css">
+<style>{$mxprost.mxprocms.s5.stylecss}</style>
+{if condition="$mxprost['mxprocms']['s2']['searchtips'] eq 1"}
+<script>
+$(function(){
+$('#searchbutton').click(function() {
+if ($('.search-input').val()  == '') { layer.msg('请输入搜索关键词！',{time:1000,shade: 0.8}); $(".search-input").focus(); return false; }
+})
+});
+</script>
+{/if}
+{if condition="$maccms.user_status eq 1"}
+<style>
+ @media (max-width: 559px){
+ .homepage .navbar {width: calc(100vw - 91px);}    
+ .navbar.open, .page .navbar {width: calc(100vw - 135px);}
+.side-op{ width:130px;}
+.homepage .side-op.open .header-op-search{display:block;}}
+</style>
+{/if} 

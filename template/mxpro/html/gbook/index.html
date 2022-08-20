@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+		<html lang="zh-CN">
+<head>
+    {include file="public/include"}
+    <title>留言板 - {$maccms.site_name}</title>
+        <script>
+        $(function(){
+            MAC.Gbook.Login = {$gbook.login};
+            MAC.Gbook.Verify = {$gbook.verify};
+            MAC.Gbook.Init();
+        });
+    </script>
+    <style>   
+    @media(max-width:559px){
+        .page .main {
+		padding-top: 80px;
+	}
+    }</style>
+</head>
+<body>
+		<div class="page list">
+  {include file="public/head"}
+	<div class="main">
+		<div class="content">
+
+            <div class="message">
+                <h2 class="module-title">我要留言</h2>
+                <div class="msg-content">
+                     <form class="gbook_form">
+                    <div class="msg-s">
+                        <div class="msg-input">
+                            <textarea name="gbook_content"  class="gbook_content" id="uinput" cols="30" rows="7" placeholder="有事没事说两句..."
+                              >{$param.name}</textarea>
+                        </div>
+                        <div class="msg-send">
+                           {if condition="$gbook.verify eq 1"}
+	                        <img id="verify_img" src="{:url('verify/index')}" onClick="this.src=this.src+'?'"  alt="单击刷新" height="34" />	                
+	                <input class="form-control verify" type="text" id="verify" name="verify" placeholder="验证码" />
+	                  {/if}
+                            <div class="btn">
+                                <button  type="submit" class="gbook_submit">确认</button>
+                            </div>
+                        </div>
+                    </div>
+                       </form>
+                    <div class="msg-wrap">
+                        <div class="msg-all module-title">
+                           网友留言</p>
+                        </div>
+                         {maccms:gbook num="10" paging="yes" order="desc" by="id"}
+                        <div class="msg-item">
+                            <div class="msg-item-left">
+                                <div class="info">
+                                    <div class="uname">{$vo.gbook_name}</div>
+                                    <div class="content cmt">{$vo.gbook_content}</div>
+                                    {if condition="$vo.gbook_reply_time gt 0"}
+                                        <font  class="glyreply">管理员回复：{$vo.gbook_reply}</font>
+                                         {/if}
+                                   <p class="text-muted">{$vo.gbook_time|date='Y-m-d H:i:s',###}</p>     
+                                </div>
+                            </div>
+                            <div class="msg-item-right">
+                                <span class="ymd">{$vo.gbook_ip|mac_long2ip}</span>
+                            </div>
+                        </div>
+                            {/maccms:gbook}
+            
+                    </div>
+                </div>
+            </div>
+					 	{include file="public/paging"}
+			</div>
+		</div>
+		 	{include file="public/foot"}
+</div>
+</body>
+</html>

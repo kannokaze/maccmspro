@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  	{include file="public/include"}
+  <title>找回密码 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}
+ </head>
+ <body class="mxui-min-width">
+   <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case mxui-part-margin main"> 
+    <div class="mxui-back-whits mxui-part-height" style="min-height:35rem"> 
+     <div class="mxui-user-login mxui-part-core-bg"> 
+      <div class="mxui-list-head mxui-part-rows mxui-padding"> 
+       <h2 class="mxui-font-xvii mxui-text-center">找回密码</h2> 
+      </div> 
+      <form class="mxui-user-form mxui-user-width mxui-part-rows" method="post" id="fm" action=""> 
+       <input class="mxui-user-text mxui-col-xs12" type="text" id="user_name" name="user_name" placeholder="请输入账号" /> 
+       <input class="mxui-user-text mxui-col-xs12" type="text" id="user_question" name="user_question" placeholder="请输入找回问题" /> 
+       <input class="mxui-user-text mxui-col-xs12" type="text" id="user_answer" name="user_answer" placeholder="请输入找回答案" /> 
+       <input class="mxui-user-text mxui-col-xs12" type="password" id="user_pwd" name="user_pwd" placeholder="请输入新密码" maxlength="20" /> 
+       <input class="mxui-user-text mxui-col-xs12" type="password" id="user_pwd2" name="user_pwd2" placeholder="再次输入新密码" maxlength="20" /> 
+       <input class="mxui-user-text mxui-col-xs5" type="tel" id="verify" name="verify" placeholder="请输入验证码" maxlength="4" /> 
+       <img class="mxui-user-code mxui-user-text mxui-col-xs4" height="45" src="{:mac_url('verify/index')}" onclick="this.src=this.src+'?'" title="看不清楚? 换一张！" /> 
+       <input class="mxui-subm-finds mxui-user-submit mxui-rims-info mxui-btns-info mxui-btns-green mxui-col-xs12 m20" type="button" id="btn_submit" value="提交" /> 
+       <a class="mxui-col-xs3 mxui-text-left" href="{:mac_url('user/login')}">立即登录</a> 
+       <a class="mxui-col-xs3 mxui-text-center" href="{:mac_url('user/findpass')}">问题找回</a> 
+       <a class="mxui-col-xs3 mxui-text-center" href="{:mac_url('user/findpass_msg')}?ac=email">邮箱找回</a> 
+       <a class="mxui-text-right" style="float:right" href="{:mac_url('user/findpass_msg')}?ac=phone">手机找回</a> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+  </div>    
+  {include file="public/foot"}
+  <script>
+$(function(){
+		$("body").bind('keyup',function(event) {
+			if(event.keyCode==13){ $('#btnLogin').click(); }
+		});
+		$('#btn_submit').click(function() {
+			if ($('#user_name').val()  == '') { layer.msg('请输入用户！'); $("#user_name").focus(); return false; }
+			if ($('#user_pwd').val()  == '') { layer.msg('请输入密码！'); $("#user_pwd").focus(); return false; }
+			if ($('#verify').val()  == '') { layer.msg('请输入验证码！'); $("#verify").focus(); return false; }
+
+			$.ajax({
+				url: "{:mac_url('user/findpass')}",
+				type: "post",
+				dataType: "json",
+				data: $('#fm').serialize(),
+				beforeSend: function () {
+					$("#btn_submit").val("loading...");
+				},
+				success: function (r) {
+					if(r.code==1){
+						location.href="{:mac_url('user/index')}";
+					}
+					else{
+						layer.msg(r.msg);
+					}
+				},
+				complete: function () {
+					$('#verify').click();
+					$("#btn_submit").val("立即找回");
+				}
+			});
+
+		});
+	});
+</script>  
+ </body>
+</html>

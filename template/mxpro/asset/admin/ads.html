@@ -1,0 +1,174 @@
+<div class="layui-tab-item">
+    <div class="layui-col-md12">
+        <blockquote class="layui-elem-quote" style="margin: 20px 0;">
+		<p>友情提示：一行两条或一行一条横幅广告，可复制下方代码实现，自行修改a标签里面内容</p>
+		<pre class="layui-code"  lay-skin="notepad">
+//代码区域  （一行两条）
+		&lt;div class="module-adslist module-wrapper ads_w"&gt;
+			&lt;a target="_blank" href="链接"&gt;&lt;img src="图片地址" alt="文本" width="100%"&gt;&lt;i class="gg-icon"&gt;&lt;/i&gt;&lt;/a&gt;
+			&lt;a target="_blank" href="链接"&gt;&lt;img src="图片地址" alt="文本" width="100%"&gt;&lt;i class="gg-icon"&gt;&lt;/i&gt;&lt;/a&gt;
+		&lt;/div&gt;
+//代码区域  （一行一条）
+	&lt;div class="module-adslist  ads_w"&gt;
+			&lt;a target="_blank" href="链接"&gt;&lt;img src="图片地址" alt="文本" width="100%"&gt;&lt;i class="gg-icon"&gt;&lt;/i&gt;&lt;/a&gt;
+		&lt;/div&gt;
+//播放器下方广告位专属代码  （一行两条）[去掉rm-two则一行一条]
+&lt;div class="player-rm rm-two rm-list"&gt;
+&lt;a target="_blank" href="链接"&gt;&lt;img src="图片地址" alt="文本" width="100%"&gt;&lt;/a&gt;
+&lt;a target="_blank" href="链接"&gt;&lt;img src="图片地址" alt="文本" width="100%"&gt;&lt;/a&gt;
+&lt;/div&gt;
+		</pre>    
+	    </blockquote>
+         <div class="layui-card">
+            <div class="layui-card-header">广告设置</div>
+            <div class="layui-card-body" pad15="">
+                <fieldset class="layui-elem-field">
+                     <legend>首页广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsindex]" {if condition="$config['mxprocms']['s6']['adsindex'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsindexdm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsindexdm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>		
+					<fieldset class="layui-elem-field">
+                     <legend>首页广告设置（分类列表下方）</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsindexlist]" {if condition="$config['mxprocms']['s6']['adsindexlist'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsindexlistdm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsindexlistdm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+					<fieldset class="layui-elem-field">
+                     <legend>详情页广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsdet]" {if condition="$config['mxprocms']['s6']['adsdet'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsdetdm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsdetdm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+			
+								<fieldset class="layui-elem-field">
+                     <legend>播放页广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsplay]" {if condition="$config['mxprocms']['s6']['adsplay'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsplaydm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsplaydm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+										<fieldset class="layui-elem-field">
+                     <legend>播放器下方广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsplaybfq]" {if condition="$config['mxprocms']['s6']['adsplaybfq'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsplaybfqdm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsplaybfqdm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+							<fieldset class="layui-elem-field">
+                     <legend>搜索页广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adssearch]" {if condition="$config['mxprocms']['s6']['adssearch'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adssearchdm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adssearchdm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+							<fieldset class="layui-elem-field">
+                     <legend>筛选页广告设置</legend>
+                     <div class="layui-field-box">
+				       	        <div class="layui-form-item">
+									<label class="layui-form-label">广告状态</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s6][adsscreen]" {if condition="$config['mxprocms']['s6']['adsscreen'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+					<div class="layui-form-item">
+                    <label class="layui-form-label">填写代码</label>
+                     <div class="layui-input-block">
+                            <textarea name="mxprocms[s6][adsscreendm]" rows="10" class="layui-textarea" placeholder="请输入广告代码">{$config['mxprocms']['s6']['adsscreendm']}</textarea>
+                        </div>
+                </div>
+                     </div>
+					</fieldset>	
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+ layui.use('code', function(){ //加载code模块
+  layui.code(); //引用code方法
+});
+</script>

@@ -1,0 +1,27 @@
+	                        <div class="module module-shadow">
+								<div class="module-heading">
+									<h2 class="module-title"><a href="{:mac_url('label/hot')}">{$mxprost.mxprocms.s3.indextoptext}<span class="module-title-en">{$mxprost.mxprocms.s3.indextopeg}</span></a></h2>
+									<a class="module-heading-more" href="{:mac_url('label/hot')}">更多<i class="icon-arrow-right"></i></a>
+								</div>
+								<div class="module-main scroll-box">
+									<div class="module-items scroll-content">
+									    {maccms:type  order="asc" by="sort" ids="'.$mxprost['mxprocms']['s3']['indextopid'].'" id="vo1" key="key1"  flag="vod"}	
+										<div class="module-paper-item module-item">
+											<div class="module-paper-item-header"><i class="icon64 icon64 {switch name="vo1.type_id"}{case value="1"}icon-dy{/case}{case value="2"}icon-tv{/case}{case value="3"}icon icon-zy{/case}{case value="4"}icon icon-dm{/case}{default /}iicon-jl{/switch}"></i>
+												<h3 class="module-paper-item-title">{$vo1.type_name}榜</h3></div>
+											<div class="module-paper-item-main">
+											      {maccms:vod num="'.$mxprost['mxprocms']['s3']['indextopnum'].'" type="'.$vo1['type_id'].'" order="'.$mxprost['mxprocms']['s3']['indextoporder'].'" by="'.$mxprost['mxprocms']['s3']['indextopby'].'" year="'.$mxprost['mxprocms']['s3']['indextopyear'].'"}
+												<a href="{if condition="$mxprost['mxprocms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}">
+													<div class="module-paper-item-num {if condition="$key eq 1"}module-paper-item-num-first{/if} {if condition="$key eq 2"}module-paper-item-num-second{/if} {if condition="$key eq 3"}module-paper-item-num-third{/if}">{$key}</div>
+													<div class="module-paper-item-info"><span class="module-paper-item-infotitle">{$vo.vod_name}</span>
+														<p>{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</p>
+													</div>
+													<div class="icon-arrow-right"></div>
+												</a>
+												 {/maccms:vod}
+											</div>
+										</div>
+										{/maccms:type}
+									</div>
+								</div>
+							</div>

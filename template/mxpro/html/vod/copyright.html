@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html lang="zh-CN">
+<head>
+   <meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>系统提示【{$obj['vod_name']}】因为版权问题，本站不提供在线播放</title>
+    <link rel="stylesheet" href="{$maccms.path}mxtheme/css/style.css" type="text/css">
+
+</head>
+<body >
+    <div class="weui_msg_jump">
+    <div class="weui_icon"><i class="icon-warm"></i></div>
+    <div class="weui_text">
+        <h4 class="weui_msg_title">系统提示...</h4>
+        <p class="weui_xtts">亲爱的用户：</p>
+          <p class="text">【{$obj['vod_name']}】{$GLOBALS['config']['app']['copyright_notice']}</p>
+        <p class="weui_tzt">
+             {if condition="$obj['vod_jumpurl'] neq ''"}
+            页面自动 <a id="href" href="<?php echo($obj['vod_jumpurl']);?>">跳转</a> 等待时间：<b id="wait">3</b>
+                    {/if}
+            </p>
+            <a href="{$maccms.path}"><b>返回首页</b></a>
+    </div>
+</div>
+
+<script type="text/javascript">
+{if condition="$obj['vod_jumpurl'] neq ''"}
+    (function(){
+        var wait = document.getElementById('wait'),
+            href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+            var time = --wait.innerHTML;
+            if(time <= 0) {
+                top.location.href = href;
+                clearInterval(interval);
+            };
+        }, 1000);
+    })();
+    {/if}
+
+</script>
+</body>
+</html>

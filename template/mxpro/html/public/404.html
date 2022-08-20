@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>错误提示 - {$maccms.site_name}</title>
+    {include file="public/include"}
+</head>
+<body ontouchstart class="page prompt">
+{include file="public/head"}
+<div class="main">
+	<div class="content">
+	    <div class="module-prompt">
+	        <div class="module-prompt-pic">
+	            <img src="{$maccms.path}mxtheme/images/404.gif">
+            </div>
+            <div class="module-prompt-info module-prompt-info-bg">咦？你要找的影片居然不在这个页面了！<br>不过别着急，可以通过搜索或网站其他页面找到影片<p>
+                <a href="javascript:history.go(-1);">返回 {$maccms.site_name}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="public/foot"}
+</body>
+</html>

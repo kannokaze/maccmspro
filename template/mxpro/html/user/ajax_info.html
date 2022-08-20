@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+    {include file="public/include"} 
+  <title>个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}   
+ </head>
+ <body class="mxui-min-width">
+ <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-sm mxui-show-md-block"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">我的资料</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="{:mac_url('user/index')}">返回</a> </li> 
+        </ul> 
+       </div> 
+       <ul class="mxui-user-list mxui-part-rows mxui-back-whits"> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">用户名</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_name}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">所属会员组</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.group.group_name}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">到期时间</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_end_time|mac_day|mac_default='无限期'}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">账户积分</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_points}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">QQ号码</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_qq|mac_default='未填写'}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">邮件地址</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_email|mac_default='未填写'}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">联系手机</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_phone|mac_default='未填写'}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">注册时间</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_reg_time|mac_day|mac_default='未知'}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">登录时间</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_login_time|mac_day}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">登录IP</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_login_ip|long2ip}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">登录次数</span> 
+          <span class="mxui-col-xs7 mxui-col-sm8 mxui-part-eone">{$obj.user_login_num}</span> 
+          <span class="mxui-col-xs1 mxui-col-sm1 mxui-part-eone mxui-text-right"><i class="icon-you"></i></span> 
+         </div> </li> 
+		{if $GLOBALS['config']['user']['invite_reg_points'] gt 0}
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">推广注册链接</span> 
+          <span class="mxui-col-xs6 mxui-col-sm8 mxui-part-eone"><input id="url" class="mxui-visible" value="{$maccms.http_type}{$maccms.site_url}{:mac_url('user/reg')}?uid={$obj.user_id}" /></span> 
+          <span class="mxui-col-xs2 mxui-col-sm1 mxui-part-eone mxui-text-right mxui-copy" onclick="copyUrl()">复制</span> 
+         </div> </li> 
+		{/if}
+		{if $GLOBALS['config']['user']['invite_visit_points'] gt 0}
+		<li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+          <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">推广访问链接</span> 
+          <span class="mxui-col-xs6 mxui-col-sm8 mxui-part-eone"><input id="url2" class="mxui-visible" value="{$maccms.http_type}{$maccms.site_url}{:mac_url('user/visit')}?uid={$obj.user_id}" /></span> 
+          <span class="mxui-col-xs2 mxui-col-sm1 mxui-part-eone mxui-text-right mxui-copy" onclick="copyUrl2()">复制</span> 
+         </div> </li>
+		{/if} 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+  <script>
+		function copyUrl() {
+		var Url = document.getElementById("url");
+		Url.select(); /*选择对象*/ 
+		document.execCommand("Copy"); /*执行浏览器复制命令*/ 
+		layer.msg("你的推广地址已复制，用 Ctrl+V 粘贴到浏览器打开链接");
+	}
+	
+	function copyUrl2() {
+		var Url = document.getElementById("url2");
+		Url.select(); /*选择对象*/ 
+		document.execCommand("Copy"); /*执行浏览器复制命令*/ 
+		layer.msg("你的推广地址已复制，用 Ctrl+V 粘贴到浏览器打开链接");
+	}
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '',
+		browseButtonClass:'btn btn-default btn-xs mxui-user-alter mxui-part-roun icon-xiugai',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".jQuery-image-upload-controls").mouseenter(function(){
+    $(".jQuery-image-upload-controls").css("display","block");
+	});
+	$(".jQuery-image-upload-controls").mouseleave(function(){
+    $(".jQuery-image-upload-controls").css("display","none");
+	});
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		layer.msg(err);
+	});
+</script>  
+ </body>
+</html>

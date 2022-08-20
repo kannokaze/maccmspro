@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>使用积分购买权限</title>
+{include file="public/include"}  
+</head>
+<body>
+    	<div class="page list">
+     {include file="public/head"}   
+    	<div class="main">
+   	<div class="content">   
+<div class="mx-mac_msg_jump">
+	<div class="msg_jump_tit">系统提示:</div>
+	<div class="text">
+		{$popedom.msg}
+		<p class="text-muted" style="font-size: 10px;margin-bottom: 10px;">提示：一次支付，永久观看，不重复扣费，谢谢支持。</p>
+		<p style="text-align:center;">
+			{if condition="$user.group.group_id eq 1"}
+			<a href="javascript:;" class="mac_user btnlogin">马上登录</a>
+			{else/}
+			<a href="{:url('user/buy')}" class="btncz" target="_blank">马上充值</a>
+			<a href="javascript:;" onclick="MAC.User.BuyPopedom(this)" class="btnlogin" data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}" data-mid="1" data-type="{if condition="$obj.player_info.flag eq 'play'"}4{else/}5{/if}" >确认购买</a>
+			{/if}
+		</p>
+	</div>
+</div>
+   	</div>
+   </div>
+   </div>
+   {include file="public/foot"} <!-- 底部-->
+
+</body>
+</html>
+
+
+

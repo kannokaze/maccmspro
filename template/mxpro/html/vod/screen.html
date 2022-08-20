@@ -1,0 +1,155 @@
+			<div class="module-main module-class">
+				   {if condition="$mxprost['mxprocms']['s4']['showclass'] eq 1"}	 
+				   {if $obj.childids||$obj.parent.childids}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">类型<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+						 {if condition="$obj.type_pid eq 0"}
+						{if condition="$maccms.aid eq 11"}
+								<a href="{:mac_url_type($obj,[],'show')}"  {if condition="$obj.type_pid eq ''"}class="active"{/if}>全部</a>
+									{else /}
+									<a href="{:mac_url_type($obj.type_id,['id'=>$obj['type_id']],'show')}"  {if condition="$obj.type_pid eq ''"}class="active"{/if}>全部</a>
+									{/if}
+							  {maccms:type ids="current" order="asc" by="sort" id="vo2" key="key2"}
+								<a href="{:mac_url_type($vo2,[],'show')}" {if condition="$obj.type_pid eq $vo2.type_id"}class="active"{/if} title="{$vo2.type_name}">{$vo2.type_name}</a>
+							{/maccms:type}
+				            {else /}
+				            	{if condition="$maccms.aid eq 11"}
+				            <a href="{:mac_url_type($obj,[],'show')}"  {if condition="$obj.type_pid eq ''"}class="active"{/if}>全部</a>
+				            {else /}
+				    <a href="{:mac_url_type($obj.type_pid,['id'=>$obj['type_pid']],'show')}" {if condition="$obj.type_pid eq ''"}class="active"{/if}>全部</a>
+				          {/if}
+				            {maccms:type parent="'.$obj['type_pid'].'" order="asc" by="sort" id="vo2" key="key2"}
+				             <a  {if condition="$obj.type_id eq $vo2.type_id"}class="active"{/if} href="{:mac_url_type($vo2,[],'show')}" title="{$vo2.type_name}">{$vo2.type_name}</a>
+				            
+				            	{/maccms:type}	
+				           {/if}
+							</div>
+						</div>
+					</div>
+						{/if}
+				    	{/if}
+				    
+				     {if condition="$mxprost['mxprocms']['s4']['showjq'] eq 1"}	 
+				    {if $obj.type_extend.class||$obj.parent.type_extend.class}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">剧情<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>'','order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['class'] eq ''"}class="active"{/if}>全部</a>
+								 {empty name="$obj.type_extend.class"}
+				            {maccms:foreach name=":explode(',',$obj.parent.type_extend.class)" id="vo2" key="key2"}
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['class'] eq $vo2"}class="active"{/if}>{$vo2}</a>
+									{/maccms:foreach}
+				            {else /}
+				            {maccms:foreach name=":explode(',',$obj.type_extend.class)" id="vo2" key="key2"}
+				             <a {if condition="$param['class'] eq $vo2"}class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$vo2,'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+				            
+				            {/maccms:foreach}
+				         {/empty}
+							</div>
+						</div>
+					</div>
+						{/if}
+						{/if}	
+						
+					 {if condition="$mxprost['mxprocms']['s4']['showarea'] eq 1"}	 	
+					{if $obj.type_extend.area||$obj.parent.type_extend.area}	
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">地区<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>'','lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['area'] eq ''"}class="active"{/if}>全部</a>
+								{empty name="$obj.type_extend.area"}
+				        {maccms:foreach name=":explode(',',$obj.parent.type_extend.area)" id="vo2" key="key2"}
+						<a {if condition="$param['area'] eq $vo2"}class="active"{/if}  href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+						{/maccms:foreach}
+				        {else /}
+				        {maccms:foreach name=":explode(',',$obj.type_extend.area)" id="vo2" key="key2"}
+				        <a {if condition="$param['area'] eq $vo2"}class="active"{/if}  href="{:mac_url_type($obj,['area'=>$vo2,'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+				        {/maccms:foreach}
+				    {/empty}
+							</div>
+						</div>
+					</div>
+					{/if}
+				{/if}
+				
+				{if condition="$mxprost['mxprocms']['s4']['showlang'] eq 1"}	 	
+				{if $obj.type_extend.lang||$obj.parent.type_extend.lang}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">语言<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>'','year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['lang'] eq ''"}class="active"{/if}>全部</a>
+							 {empty name="$obj.type_extend.lang"}
+			 {maccms:foreach name=":explode(',',$obj.parent.type_extend.lang)" id="vo2" key="key2"}
+							<a {if condition="$param['lang'] eq $vo2"}class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$vo2,'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+							{/maccms:foreach}
+				            {else /}
+				       	{maccms:foreach name=":explode(',',$obj.type_extend.lang)" id="vo2" key="key2"}
+				        <a {if condition="$param['lang'] eq $vo2"}class="active"{/if}  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$vo2,'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+				           {/maccms:foreach}
+				    {/empty}
+							</div>
+						</div>
+					</div>
+					{/if}	
+						{/if}
+					
+					
+					
+					
+					{if condition="$mxprost['mxprocms']['s4']['showyear'] eq 1"}	
+				{if $obj.type_extend.year||$obj.parent.type_extend.year}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">年份<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>'','level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['year'] eq ''"}class="active"{/if}>全部</a>
+							 {empty name="$obj.type_extend.year"}
+				        {maccms:foreach name=":explode(',',$obj.parent.type_extend.year)" id="vo2" key="key2"}
+							<a {if condition="$param['year'] eq $vo2"}class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+							{/maccms:foreach}
+				            {else /}
+				        {maccms:foreach name=":explode(',',$obj.type_extend.year)" id="vo2" key="key2"}
+				        <a {if condition="$param['year'] eq $vo2"}class="active"{/if}  href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$vo2,'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+				           {/maccms:foreach}
+				    {/empty}
+							</div>
+						</div>
+					</div>
+					{/if}
+						{/if}
+					
+					
+									
+                		{if condition="$mxprost['mxprocms']['s4']['showzm'] eq 1"}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">字母<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>'','state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" {if condition="$param['letter'] eq ''"}class="active"{/if}>字母</a>
+							 {maccms:foreach name=":explode(',','A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0-9')" id="vo2" key="key2"}
+							<a {if condition="$param['letter'] eq $vo2"}class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$vo2,'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>$param['by'] ],'show')}" title="{$vo2}">{$vo2}</a>
+							{/maccms:foreach}
+							</div>
+						</div>
+					</div>
+                    	{/if}
+					
+					
+						{if condition="$mxprost['mxprocms']['s4']['showby'] eq 1"}
+					<div class="module-class-items scroll-box">
+						<div class="module-class-item scroll-content">
+							<div class="module-item-title">排序<i class="icon-arrow"></i></div>
+							<div class="module-item-box">
+								<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'time' ],'show')}" {if condition="$param.by eq '' || $param.by eq 'time'"}class="active"{/if} title="按时间排序">时间排序</a>
+							<a href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'hits' ],'show')}" {if condition="$param.by eq 'hits'"}class="active"{/if} title="按人气排序">人气排序</a>
+							<a {if condition="$param.by eq 'score'"}class="active"{/if} href="{:mac_url_type($obj,['area'=>$param['area'],'lang'=>$param['lang'],'year'=>$param['year'],'level'=>$param['level'],'letter'=>$param['letter'],'state'=>$param['state'],'tag'=>$param['tag'],'class'=>$param['class'],'order'=>$param['order'],'by'=>'score' ],'show')}" title="按评分排序">评分排序</a>
+							</div>
+						</div>
+					</div>
+						{/if}
+				</div>

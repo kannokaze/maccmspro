@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  	{include file="public/include"}
+  <title>下载记录 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}
+ </head>
+ <body class="mxui-min-width">
+ <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-xs mxui-hide-sm mxui-show-md-block">
+       {include file="user/menu"} 
+     </div> 
+     <div class="mxui-main-right mxui-col-xs12 mxui-col-md8 mxui-col-lg9"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">下载记录</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="{:mac_url('user/index')}">返回</a> </li> 
+        </ul> 
+       </div> 
+       <form class="mxui-user-form mxui-user-info" id="form1" name="form1" method="post"> 
+        <ul class="mxui-padding-v mxui-part-rows"> 
+         <li class="mxui-padding-v mxui-col-xs3 mxui-col-md1 mxui-part-rows"> <a class="mxui-col-xs12 mxui-rims-info mxui-btns-info mxui-btns-green" href="javascript:;" onclick="MAC.CheckBox.All('ids[]');">全选</a> </li> 
+         <li class="mxui-padding-v mxui-col-xs3 mxui-col-md1 mxui-part-rows"> <a class="mxui-col-xs12 mxui-rims-info mxui-btns-info mxui-btns-green" href="javascript:;" onclick="MAC.CheckBox.Other('ids[]');">反选</a> </li> 
+         <li class="mxui-padding-v mxui-col-xs3 mxui-col-md1 mxui-part-rows"> <a class="mxui-down-del mxui-col-xs12 mxui-rims-info mxui-btns-info mxui-btns-green" href="javascript:;" id="btnDel">删除</a> </li> 
+         <li class="mxui-padding-v mxui-col-xs3 mxui-col-md1 mxui-part-rows"> <a class="mxui-down-clear mxui-col-xs12 mxui-rims-info mxui-btns-info mxui-btns-green" href="javascript:;" id="btnClear">清空</a> </li> 
+        </ul> 
+        <ul class="mxui-user-list mxui-part-rows mxui-line-top">
+          {volist name="list" id="vo"} 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs9 mxui-col-sm6 mxui-part-eone"><input class="mxui-form-comp" name="ids[]" type="checkbox" value="{$vo.ulog_id}" /><a target="_blank" href="{$vo.data.link}">[{$vo.data.type.type_name}] {$vo.data.name} [{$vo.ulog_rid}-{$vo.ulog_sid}-{$vo.ulog_nid}]</a></span> 
+           <span class="mxui-col-xs3 mxui-col-sm3 mxui-part-eone mxui-hide-xs"><a target="_blank" href="{$vo.data.link}">重新观看</a></span> 
+           <span class="mxui-col-xs3 mxui-col-sm3 mxui-part-eone mxui-text-right">消费积分:{$vo.ulog_points}</span> 
+          </div> </li> {/volist} 
+        </ul> {if$__PAGING__.page_total>1} 
+        <div class="mxui-page-info mxui-text-center"> 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-xs-inline{if$__PAGING__['page_current']==1} mxui-btns-disad{/if}" href="{$__PAGING__.page_url|mac_url_page=1}">首页</a> 
+         <a class="mxui-btns-info mxui-rims-info{if$__PAGING__['page_current']==1} mxui-btns-disad{/if}" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_prev}">上一页</a> {if$__PAGING__.page_current>3} 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-sm-inline" href="{$__PAGING__.page_url|mac_url_page=1}">1</a> 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-sm-inline mxui-btns-disad" href="javascript:;">...</a> {/if} {maccms:foreach name="$__PAGING__.page_num" id="num"} 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-sm-inline{if$__PAGING__['page_current']==$num} mxui-btns-green{/if}" href="{if$__PAGING__['page_current']==$num}javascript:;{else}{$__PAGING__.page_url|mac_url_page=$num}{/if}">{$num}</a> {/maccms:foreach} {if$__PAGING__.page_current<($__PAGING__.page_total-2)} 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-sm-inline mxui-btns-disad" href="javascript:;">...</a> 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-sm-inline" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_total}">{$__PAGING__.page_total}</a> {/if} 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-xs-inline" href="javascript:;">{$__PAGING__.page_current}/{$__PAGING__.page_total}</a> 
+         <a class="mxui-btns-info mxui-rims-info{if$__PAGING__['page_current']==$__PAGING__.page_total} mxui-btns-disad{/if}" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_next}">下一页</a> 
+         <a class="mxui-btns-info mxui-rims-info mxui-hide mxui-show-xs-inline{if$__PAGING__['page_current']==$__PAGING__.page_total} mxui-btns-disad{/if}" href="{$__PAGING__.page_url|mac_url_page=$__PAGING__.page_total}">尾页</a> 
+        </div> {/if}{if$__PAGING__.record_total!=0} 
+        <script type="text/javascript">
+		if(document.getElementById('mxui-now')) document.getElementById('mxui-now').innerHTML='{$__PAGING__.page_current}';
+		if(document.getElementById('mxui-count')) document.getElementById('mxui-count').innerHTML='{$__PAGING__.record_total}';
+		</script> {/if} 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+  <script>
+	function delData(ids,all){
+		var msg ='删除';
+		if(all==1){
+			msg='清空';
+		}
+		if(confirm('确定要'+msg+'记录吗')){
+			$.post("{:url('user/ulog_del')}",{ids:ids,type:5,all:all},function(data) {
+				if (data.code == '1') {
+					layer.msg('删除成功');
+					location.reload();
+				}else {
+					layer.msg('删除失败：' + data.msg);
+				}
+			}, 'json')
+		}
+	}
+	$("#btnClear").click(function(){
+		delData('',1);
+	});
+	$("#btnDel").click(function(){
+		var ids = MAC.CheckBox.Ids('ids[]');
+		if(ids==''){
+			layer.msg("请至少选择一个数据");
+			return;
+		}
+		delData(ids,0);
+	});
+
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '',
+		browseButtonClass:'btn btn-default btn-xs mxui-user-alter mxui-part-roun mxui-icon-font icon-xiugai',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".jQuery-image-upload-controls").mouseenter(function(){
+    $(".jQuery-image-upload-controls").css("display","block");
+	});
+	$(".jQuery-image-upload-controls").mouseleave(function(){
+    $(".jQuery-image-upload-controls").css("display","none");
+	});
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		layer.msg(err);
+	});
+</script>  
+ </body>
+</html>

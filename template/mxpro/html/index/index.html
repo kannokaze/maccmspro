@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+		<html lang="zh-CN">
+		<head>
+		    {include file="public/include"}
+			<title>{$maccms.site_name}</title>
+            <meta name="keywords" content="{$maccms.site_keywords}" />
+            <meta name="description" content="{$maccms.site_description}" />
+		</head>
+		<body>
+				<div class="homepage">
+                {include file="public/head"}
+					<div class="main">
+						<div class="content">
+						    {if condition="$mxprost['mxprocms']['s3']['slide'] eq 1"} {include file="index/slide"}{/if}
+                            {include file="ads/ads-index"}
+                             {if condition="$mxprost['mxprocms']['s3']['indexweek'] eq 1"}{include file="index/week"}{/if}
+                            {if condition="$mxprost['mxprocms']['s3']['indexhot'] eq 1"}{include file="index/hot"}{/if}
+				            {if condition="$mxprost['mxprocms']['s3']['indexlist'] eq 1"}{include file="index/list"}{/if}
+				            {include file="ads/ads-indexlist"}
+				            {if condition="$mxprost['mxprocms']['s3']['indextop'] eq 1"}{include file="index/top"}{/if}
+						</div>
+					</div>
+			    	{include file="public/foot"}
+				</div>
+		</body>
+
+</html>

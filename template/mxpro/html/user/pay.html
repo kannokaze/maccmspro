@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+ 	{include file="public/include"}
+  <title>充值中心 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"} 
+ </head>
+ <body class="mxui-min-width">
+ <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-xs mxui-hide-sm mxui-show-md-block">
+       {include file="user/menu"} 
+     </div> 
+     <div class="mxui-main-right mxui-col-xs12 mxui-col-md8 mxui-col-lg9"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">充值中心</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="javascript:;" onclick="window.history.back(-1);">返回</a> </li> 
+        </ul> 
+       </div> 
+       <form method="post" target="_blank" action="{:mac_url('user/gopay')}"> 
+        <input type="hidden" name="order_id" value="{$info.order_id}" /> 
+        <input type="hidden" name="order_code" value="{$info.order_code}" /> 
+        <ul class="mxui-user-list mxui-part-rows mxui-back-whits"> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">订单编号</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">{$info.order_code}</span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">订单金额</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">{$info.order_price}元</span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">支付方式</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">请选择下方支付方式</span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-pays mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-hide-xs mxui-col-sm3 mxui-part-eone">&nbsp;</span> 
+           <span class="mxui-col-xs12 mxui-col-sm6 mxui-part-eone">
+              {if$config['alipay']['appid']!=''}
+              <label><input type="radio" name="payment" value="alipay" id="payment1"/>支付宝</label>
+              {/if} 
+              {if$config['weixin']['appid']!=''}
+              <label><input type="radio" name="payment" value="weixin" id="payment2" />微信</label>
+              {/if}
+              {if$config['codepay']['appid']!=''}
+              <label><input type="radio" name="payment" value="codepay" id="payment3" />码支付</label>
+              {/if} 
+              {if$config['zhapay']['appid']!=''}
+              <label><input type="radio" name="payment" value="zhapay" id="payment4" />幻兮支付</label>
+              {/if}  
+              {if$config['alipay']['appid']==''&&$config['weixin']['appid']==''&&$config['codepay']['appid']==''&&$config['zhapay']['appid']==''}支付未启用{/if}</span> 
+          </div> </li> {if$config['codepay']['appid']!=''} 
+         <div id="codepay" style="display:none;"> 
+          <li class="mxui-user-mpay mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+           <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+            <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">码支付</span> 
+            <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">请选择下方支付途径</span> 
+            <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+           </div> </li> 
+          <li class="mxui-user-mpay mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+           <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+            <span class="mxui-hide-xs mxui-col-sm3 mxui-part-eone">&nbsp;</span> 
+            <span class="mxui-col-xs12 mxui-col-sm6 mxui-part-eone"> <label><input type="radio" name="paytype" value="1" checked="" />支付宝</label> <label><input type="radio" name="paytype" value="2" />QQ钱包</label> <label><input type="radio" name="paytype" value="3" />微信</label> </span> 
+           </div> </li> 
+         </div> {/if} 
+         {if$config['zhapay']['appid']!=''} 
+         <div id="zhapay" style="display:none;"> 
+          <li class="mxui-user-zpay mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+           <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+            <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">幻兮支付</span> 
+            <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">请选择下方支付途径</span> 
+            <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+           </div> </li> 
+          <li class="mxui-user-zpay mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+           <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+            <span class="mxui-hide-xs mxui-col-sm3 mxui-part-eone">&nbsp;</span> 
+            <span class="mxui-col-xs12 mxui-col-sm6 mxui-part-eone"> <label><input type="radio" name="paytype" value="1" />微信</label> <label><input type="radio" name="paytype" value="2" checked="" />支付宝</label> </span> 
+           </div> </li> 
+         </div> {/if} 
+         <li class="mxui-padding-x mxui-part-rows"><input class="mxui-rims-info mxui-btns-info  mxui-btns mxui-btns-green" type="submit" id="btn_submit" value="确认" /> </li> 
+        </ul> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+  <script>
+	$(function(){
+		showCont();
+		$("input[name=payment]").click(function(){
+			showCont();
+		});
+	});
+	function showCont(){
+		switch($("input[name=payment]:checked").attr("id")){
+			case "payment1":
+			$("#codepay").hide();
+			$("#zhapay").hide();
+			break;
+			case "payment2":
+			$("#codepay").hide();
+			$("#zhapay").hide();
+			break;
+			case "payment3":
+			$("#zhapay").hide();
+			$("#codepay").show();
+			break;
+			case "payment4":
+			$("#codepay").hide();
+			$("#zhapay").show();
+			break;
+			case "payment5":
+			$("#codepay").hide();
+			$("#zhapay").hide();
+			break;
+			default:
+			break;
+		}
+	}
+
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '',
+		browseButtonClass:'btn btn-default btn-xs mxui-user-alter mxui-part-roun mxui-icon-font icon-xiugai',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".jQuery-image-upload-controls").mouseenter(function(){
+    $(".jQuery-image-upload-controls").css("display","block");
+	});
+	$(".jQuery-image-upload-controls").mouseleave(function(){
+    $(".jQuery-image-upload-controls").css("display","none");
+	});
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		layer.msg(err);
+	});
+</script>  
+ </body>
+</html>

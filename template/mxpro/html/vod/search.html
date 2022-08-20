@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+   <title>{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果 - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果">
+    <meta name="description" content="{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}搜索结果">
+     {include file="public/include"}
+    </head>
+    <body>
+<div class="page list">
+	   {include file="public/head"}
+	<div class="main">
+		<div class="content">
+			<div class="module">
+			    {maccms:vod num="1" paging="yes"} 
+				<div class="module-heading module-heading-search">
+					<div class="module-heading-search-result">搜索"<strong>{$param.wd}{$param.actor}{$param.director}{$param.area}{$param.lang}{$param.year}{$param.class}</strong>"，找到 <strong class="mac_total"></strong> 部影片</div>
+				</div>
+						{include file="ads/ads-search"}
+				<div class="module-main module-page">
+					<div class="module-items module-card-items">
+					    {maccms:vod num="16" paging="yes" pageurl="vod/search" order="desc" by="time"} 
+                        {include file="block/searchbox"}
+						{/maccms:vod} 
+					</div>
+					{include file="public/paging"}
+				</div>
+				{/maccms:vod}
+		{empty name="__LIST__"}
+	    {include file="block/vod_no"}<!-- 无结果 -->
+     {/empty}
+			</div>
+		</div>
+	</div>
+</div>
+	{include file="public/foot"}
+       <script>
+        $('.mac_total').html('{$__PAGING__.record_total}');
+    </script>
+    </body>
+</html>

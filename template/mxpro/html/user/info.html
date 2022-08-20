@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+	{include file="public/include"}
+  <title>修改资料 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}  
+ </head>
+ <body class="mxui-min-width">
+  <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-xs mxui-hide-sm mxui-show-md-block">
+       {include file="user/menu"} 
+     </div> 
+     <div class="mxui-main-right mxui-col-xs12 mxui-col-md8 mxui-col-lg9"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">修改资料</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="{:mac_url('user/index')}">返回</a> </li> 
+        </ul> 
+       </div> 
+       <form class="mxui-user-form mxui-user-info mxui-part-rows" id="fm" name="fm" method="post" action=""> 
+        <ul class="mxui-user-list mxui-part-rows mxui-back-whits"> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">用户名</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone">{$obj.user_name}</span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">原密码</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="password" class="mxui-form-control" name="user_pwd" placeholder="原密码" maxlength="20" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><span class="mxui-user-tips mxui-text-gules">＊</span></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">新密码</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="password" class="mxui-form-control" name="user_pwd1" placeholder="新密码" maxlength="20" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">重复密码</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="password" class="mxui-form-control" name="user_pwd2" placeholder="重复密码" maxlength="20" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">QQ号码</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="text" class="mxui-form-control" name="user_qq" value="{$obj.user_qq}" placeholder="QQ号码" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">邮件地址</span> 
+           <span class="mxui-col-xs6 mxui-col-sm6 mxui-part-eone"><input type="email" class="mxui-form-control" name="user_email" value="{$obj.user_email}" placeholder="邮件地址" /></span> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right">{if$obj.user_email==''}<a href="{:mac_url('user/bind')}?ac=email">绑定</a>{else}<a class="mxui-user-unnd btn_unbind" ac="email" href="javascript:;">解绑</a>{/if}</span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">联系手机</span> 
+           <span class="mxui-col-xs6 mxui-col-sm6 mxui-part-eone"><input type="tel"  class="mxui-form-control" name="user_phone" value="{$obj.user_phone}" placeholder="联系手机" /></span> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right">{if$obj.user_phone==''}<a href="{:mac_url('user/bind')}?ac=phone">绑定</a>{else}<a class="mxui-user-unnd btn_unbind" ac="phone" href="javascript:;">解绑</a>{/if}</span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">密码问题</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="text" class="mxui-form-control" name="user_question" value="{$obj.user_question}" placeholder="找回密码问题" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">密码答案</span> 
+           <span class="mxui-col-xs7 mxui-col-sm6 mxui-part-eone"><input type="text" class="mxui-form-control" name="user_answer" value="{$obj.user_answer}" placeholder="找回密码答案" size="40" /></span> 
+           <span class="mxui-col-xs1 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows"><input class="mxui-subm-infos mxui-btns  mxui-rims-info mxui-btns-info mxui-btns-green" type="button" id="btn_submit" value="保存" /></li> 
+        </ul> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+  <script>
+
+	$('.btn_unbind').click(function(){
+		var ac = $(this).attr('ac');
+		if(ac!='email' && ac!='phone'){
+			layer.msg('参数错误');
+		}
+		if(confirm('确认解除绑定吗？此操作不可恢复？')) {
+			$.ajax({
+				url: "{:url('user/unbind')}",
+				type: "post",
+				dataType: "json",
+				data: {ac: ac},
+				beforeSend: function () {
+					//开启loading
+				},
+				success: function (r) {
+					layer.msg(r.msg);
+					if(r.code==1){
+						location.href="{:url('user/info')}";
+					}
+				},
+				complete: function () {
+					//结束loading
+				}
+			});
+		}
+	});
+
+	$("#btn_submit").click(function() {
+		var data = $("#fm").serialize();
+		$.ajax({
+			url: "{:url('user/info')}",
+			type: "post",
+			dataType: "json",
+			data: data,
+			beforeSend: function () {
+				//开启loading
+				//$(".loading_box").css("display","block");
+				$("#btn_submit").val("loading...");
+			},
+			success: function (r) {
+				layer.msg(r.msg);
+				if(r.code==1){
+					location.href="{:url('user/info')}";
+				}
+			},
+			complete: function () {
+				//结束loading
+				//$(".loading_box").css("display","none");
+				$("#btn_submit").val("提交");
+			}
+		});
+	});
+	
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '',
+		browseButtonClass:'btn btn-default btn-xs mxui-user-alter mxui-part-roun mxui-icon-font icon-xiugai',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".jQuery-image-upload-controls").mouseenter(function(){
+    $(".jQuery-image-upload-controls").css("display","block");
+	});
+	$(".jQuery-image-upload-controls").mouseleave(function(){
+    $(".jQuery-image-upload-controls").css("display","none");
+	});
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		layer.msg(err);
+	});
+</script>  
+ </body>
+</html>

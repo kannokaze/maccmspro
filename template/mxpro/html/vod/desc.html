@@ -1,0 +1,110 @@
+	<div class="module module-info">
+						<div class="module-main">
+							<div class="module-info-poster">
+								<div class="module-item-cover">
+									<div class="module-item-pic"><img class="ls-is-cached lazy lazyload"  data-original="{:mac_url_img($obj.vod_pic)}"  src="{:mac_url_img($mxprost.mxprocms.s1.pic)}" alt="{$obj.vod_name}"></div>
+								</div>
+							</div>
+							<div class="module-info-main">
+								<div class="module-info-heading">
+									<h1>{$obj.vod_name}</h1>
+									<div class="module-info-tag">
+										<div class="module-info-tag-link"><a title="{$obj.vod_year|mac_default='未知'}" href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'year'=>$obj['vod_year']],'show')}">{$obj.vod_year|mac_default='未知'}</a></div>
+										<div class="module-info-tag-link"><a title="{$obj.vod_area|mac_default='未知'}" href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'area'=>$obj['vod_area']],'show')}">{$obj.vod_area|mac_default='未知'}</a></div>
+										<div class="module-info-tag-link">
+									{maccms:foreach name=":explode(',',$obj.vod_class)" id="vo2" key="key2"}	    
+					                	<a href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'class'=>$vo2],'show')}">{$vo2}</a><span class="slash">/</span>
+						            {/maccms:foreach}
+										</div>
+									</div>
+								
+			                    		<div class="module-mobile-play">
+			                    	  {if condition="$obj.vod_play_list"}	    
+			                    	{notempty name="obj.vod_play_list"}
+				                    {php}$count=1;{/php}
+			                    	{maccms:foreach name="obj.vod_play_list" key="play"}
+			                    	{if $count==1}
+										<a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid])}" class="main-btn" title="立刻播放{$obj.vod_name}"><i class="icon-play"></i>立即播放</a>
+									{/if}{php}$count++;{/php}
+			                	{/maccms:foreach}
+			                	{/notempty}
+			                	{else/}
+			                	<a class="noplaylist btn-large" href="javaScript:;"><i class="icon-warm"></i>暂无片源</a>
+			                	{/if}
+			                	{if condition="$maccms.user_status eq 1"}
+								<a href="javascript:void(0);"  data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" class="mac_ulog btn-large btn-collect"><i class="icon-shoucang"></i>收藏</a>
+								{/if}
+									</div>
+								
+								</div>
+								<div class="module-info-content">
+									<div class="module-info-items">
+										<div class="module-info-item module-info-introduction">
+											<div class="module-info-introduction-content">
+												<p>{$obj.vod_content|mac_filter_html}</p>
+											</div>
+										</div>
+										<div class="module-info-item"><span class="module-info-item-title">导演：</span>
+											<div class="module-info-item-content">
+										    {$obj.vod_director|mac_default='未知'|mac_url_create='director','vod','search','<span class="slash">/</span>'}
+											</div>
+										</div>
+										{if condition="$obj.vod_writer eq null or $obj.vod_writer eq '未知' or $obj.vod_writer eq '内详'"}{else}
+										<div class="module-info-item"><span class="module-info-item-title">编剧：</span>
+											<div class="module-info-item-content">
+												{$obj.vod_writer|mac_default='未知'|mac_url_create='writer','vod','search','<span class="slash">/</span>'}
+											</div>
+										</div>
+										{/if}
+										<div class="module-info-item"><span class="module-info-item-title">主演：</span>
+											<div class="module-info-item-content">
+											    {$obj.vod_actor|mac_default='未知'|mac_url_create='actor','vod','search','<span class="slash">/</span>'}
+											</div>
+										</div>
+										{if condition="($obj.type_id_1 eq 2||$obj.type_id eq 2) and $obj.vod_pubdate gt 0"}
+										<div class="module-info-item"><span class="module-info-item-title">上映：</span>
+											<div class="module-info-item-content">{$obj.vod_pubdate}</div>
+										</div>
+										{/if}
+										{if condition="($obj.type_id_1 eq 2||$obj.type_id eq 2) and $obj.vod_duration gt 0"}
+										<div class="module-info-item"><span class="module-info-item-title">片长：</span>
+											<div class="module-info-item-content">每集{$obj.vod_duration}分钟</div>
+										</div>
+										{/if}
+										<div class="module-info-item"><span class="module-info-item-title">更新：</span>
+											<div class="module-info-item-content">{$obj.vod_time|date='Y-m-d',###}</div>
+										</div>
+										<div class="module-info-item"><span class="module-info-item-title">{if condition="($obj.type_id_1 eq 1||$obj.type_id eq 1) and $obj.vod_duration gt 0"}片长：{elseif condition="$obj.type_id_1 eq 4||$obj.type_id eq 4"}连载：{elseif condition="$obj.type_id_1 eq 2||$obj.type_id eq 2"}集数：{else}备注：{/if}</span>
+											<div class="module-info-item-content">{if condition="$obj.vod_remarks neq ''"}{$obj.vod_remarks}{elseif condition="$obj.vod_serial gt 0"}第{$obj.vod_serial}集{else /}已完结{/if}</div>
+										</div>
+											{if condition="$mxprost['mxprocms']['s2']['douban'] eq 1"}<div class="module-info-item" style="color:#007711"><span class="module-info-item-title">豆瓣：</span><a href="https://search.douban.com/movie/subject_search?search_text={$obj.vod_name}" target="_blank" title="到豆瓣页面查看" rel="nofollow"><font color="#007711">{$obj.vod_name}</font></a></div>{/if}
+									</div>
+
+									<div class="module-info-footer">
+										<div class="module-info-play">
+								    {if condition="$obj.vod_play_list"}
+									{notempty name="obj.vod_play_list"}
+				                    {php}$count=1;{/php}
+			                    	{maccms:foreach name="obj.vod_play_list" key="play"}
+			                    	{if $count==1}
+											<a href="{:mac_url_vod_play($obj,['sid'=>$vo.sid])}" class="main-btn" title="立刻播放{$obj.vod_name}"><i class="icon-play"></i>立即播放 </a>
+									{/if}{php}$count++;{/php}
+			                	{/maccms:foreach}
+			                	{/notempty}
+			                	{else/}
+			                	<a class="noplaylist btn-large" href="javaScript:;"><i class="icon-warm"></i>暂无片源</a>
+			                	{/if}
+			                	{if condition="$maccms.user_status eq 1"}
+											<a href="javascript:void(0);"  data-type="2" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" class="mac_ulog btn-large btn-collect"><i class="icon-shoucang"></i>收藏</a>
+								{/if}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="module-poster-bg">
+							<div class="module-item-cover">
+								<div class="module-item-pic"><img class="lazy lazyload" data-original="{:mac_url_img($obj.vod_pic)}" alt="{$vo.vod_name}"  referrerpolicy="no-referrer" src="{:mac_url_img($mxprost.mxprocms.s1.pic)}"></div>
+							</div>
+						</div>
+					</div>

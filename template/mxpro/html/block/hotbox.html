@@ -1,0 +1,25 @@
+                        <div class="module-card-item module-item {if condition="$key eq 1"}top top1{/if} {if condition="$key eq 2"}top top2{/if} {if condition="$key eq 3"}top top3{/if}">
+							<div class="module-card-item-class">{if$vo.type_1!=''}{$vo.type_1.type_name}{else}{$vo.type.type_name}{/if}</div>
+							<a href="{:mac_url_vod_detail($vo)}" class="module-card-item-poster">
+								<div class="module-item-cover">
+										<div class="module-item-top {if condition="$key eq 1"}top top1{/if} {if condition="$key eq 2"}top top2{/if} {if condition="$key eq 3"}top top3{/if}">{$key}</div>
+									<div class="module-item-note">{if condition="$vo.vod_remarks neq ''"}{$vo.vod_remarks}{elseif condition="$vo.vod_serial gt 0"}第{$vo.vod_serial}集{else /}已完结{/if}</div>
+									<div class="module-item-pic"><img class="lazy lazyload" data-original="{$vo.vod_pic|mac_url_img}" alt="{$vo.vod_name}"  referrerpolicy="no-referrer" src="{:mac_url_img($mxprost.mxprocms.s1.pic)}"></div>
+								</div>
+							</a>
+							<div class="module-card-item-info">
+								<div class="module-card-item-title">
+									<a href="{if condition="$mxprost['mxprocms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}"><strong>{$vo.vod_name}</strong></a>
+								</div>
+								<div class="module-info-item">
+									<div class="module-info-item-content">{$vo.vod_year} <span class="slash">/</span>{$vo.vod_area} <span class="slash">/</span> {$vo.vod_class}</div>
+								</div>
+								<div class="module-info-item">
+									<div class="module-info-item-content">{$vo.vod_actor}</div>
+								</div>
+							</div>
+							<div class="module-card-item-footer">
+								<a href="{:mac_url_vod_play($vo)}" class="play-btn icon-btn"><i class="icon-play"></i><span>播放</span></a>
+								<a href="{:mac_url_vod_detail($vo)}" class="play-btn-o"><span>详情</span></a>
+							</div>
+						</div>	

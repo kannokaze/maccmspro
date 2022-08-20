@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+ 	{include file="public/include"}
+  <title>升级会员组 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}
+ </head>
+ <body class="mxui-min-width">
+ <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-xs mxui-hide-sm mxui-show-md-block">
+       {include file="user/menu"} 
+     </div> 
+     <div class="mxui-main-right mxui-col-xs12 mxui-col-md8 mxui-col-lg9"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">升级会员</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="{:mac_url('user/index')}">返回</a> </li> 
+        </ul> 
+       </div> 
+       <form class="mxui-user-form mxui-user-info mxui-part-rows" action="{:mac_url('user/upgrade')}"> 
+        <ul class="mxui-user-list mxui-part-rows mxui-back-whits"> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">所属会员组</span> 
+           <span class="mxui-col-xs6 mxui-col-sm6 mxui-part-eone">{$obj.group.group_name}</span> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">升级会员组</span> 
+           <span class="mxui-col-xs6 mxui-col-sm6 mxui-part-eone">选择以下进行购买升级</span> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> 
+          </li>
+          {volist name="group_list" id="vo"}{if condition="$vo.group_id gt 2"} 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom btn-donation" data-id="{$vo.group_id}" data-name="{$vo.group_name}" data-points="{$vo.group_points_day}" data-long="day"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">{$vo.group_name}</span> 
+           <a class="mxui-subm-group mxui-col-xs6 mxui-col-sm6 mxui-part-eone grade">包天：{$vo.group_points_day}积分</a> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> 
+		  </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom btn-donation" data-id="{$vo.group_id}" data-name="{$vo.group_name}" data-points="{$vo.group_points_week}" data-long="week" > 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">{$vo.group_name}</span> 
+           <a class="mxui-subm-group mxui-col-xs6 mxui-col-sm6 mxui-part-eone grade">包周：{$vo.group_points_week}积分</a> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> 
+		  </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom btn-donation" data-id="{$vo.group_id}" data-name="{$vo.group_name}" data-points="{$vo.group_points_month}" data-long="month"> 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">{$vo.group_name}</span> 
+           <a class="mxui-subm-group mxui-col-xs6 mxui-col-sm6 mxui-part-eone grade">包月：{$vo.group_points_month}积分</a> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> 
+		  </li> 
+         <li class="mxui-padding-x mxui-part-rows mxui-line-bottom btn-donation" data-id="{$vo.group_id}" data-name="{$vo.group_name}" data-points="{$vo.group_points_year}" data-long="year" > 
+          <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows"> 
+           <span class="mxui-col-xs4 mxui-col-sm3 mxui-part-eone">{$vo.group_name}</span> 
+           <a class="mxui-subm-group mxui-col-xs6 mxui-col-sm6 mxui-part-eone grade">包年：{$vo.group_points_year}积分</a> 
+           <span class="mxui-col-xs2 mxui-col-sm3 mxui-part-eone mxui-text-right"><i class="mxui-icon-font mxui-icon-you"></i></span> 
+          </div> 
+		  </li> 
+		  {/if}{/volist} 
+        </ul> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+ <script>
+	$('.btn-donation').click(function(){
+			var that=$(this);
+			var group_id = that.attr('data-id');
+			var group_name = that.attr('data-name');
+			var long = that.attr('data-long');
+			var points = that.attr('data-points');
+	
+			if(confirm('确定要升级到【'+group_name+'】吗,需要花费【'+points+'】积分')) {
+				$.ajax({
+					url: "{:url('user/upgrade')}",
+					type: "post",
+					dataType: "json",
+					data: {group_id: group_id,long:long },
+					beforeSend: function () {
+						$("#btn_submit").css("background","#fd6a6a").val("loading...");
+					},
+					success: function (r) {
+					    layer.msg(r.msg);
+						if (r.code == 1) {
+							location.reload();
+						}
+					},
+					complete: function () {
+						$("#btn_submit").css("background","#fa4646").val("提交");
+					}
+				});
+			}
+		});
+   </script>
+ </body>
+</html>

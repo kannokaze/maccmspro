@@ -1,0 +1,43 @@
+<div class="pop-content">
+<!--登录弹窗开始-->
+<div class="popup popup-report open">
+  <div class="popup-header">
+    <h2 class="popup-title">用户登录</h2>
+  </div>
+  <div class="popup-main">
+    <div class="input-list">
+      <form class="mac_login_form">
+          <li>
+              <input type="text" class="form-control"   name="user_name" placeholder="手机/用户名">
+          </li>
+          <li>
+              <input  type="password" class="form-control" name="user_pwd" placeholder="登录密码">
+          </li>
+          {if condition="$GLOBALS['config']['user']['login_verify'] eq 1"}
+          <li>
+              <img class="user-verify" id="verify_img"  src="{:url('verify/index')}" onClick="this.src=this.src+'?'"  alt="单击刷新" />
+              <input type="text" class="form-control"  name="verify" placeholder="输入验证码" style="width:35%">
+          </li>
+          {/if}
+          <li>
+              <button type="button"  class="popup-btn login_form_submit">登录</button>
+          </li>
+      <a  href="{:mac_url('user/reg')}">注册账号</a> 
+         {if condition="$GLOBALS['config']['connect']['qq']['status'] eq 1"} 
+       <a  href="{:mac_url('user/oauth')}?type=qq">QQ登录</a> {/if}
+       {if condition="$GLOBALS['config']['connect']['weixin']['status'] eq 1"} 
+       <a href="{:mac_url('user/oauth')}?type=weixin">微信登录</a> {/if} 
+       <a  href="{:mac_url('user/findpass_msg')}?ac=email">忘记密码</a> 
+      </form>
+    </div>
+  </div>
+      <div class="close-popup"><i class="icon icon-close"></i></div>
+</div>
+<!--登录弹窗结束-->
+<script>
+$('.popup .close-popup').click(function(){
+    $(".pop-content").remove();
+});
+</script>
+<div class="shortcuts-mobile-overlay"></div>
+</div>

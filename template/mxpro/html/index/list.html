@@ -1,0 +1,41 @@
+			            {maccms:type  order="asc" by="sort" ids="'.$mxprost['mxprocms']['s3']['indexlistid'].'" id="vo1" key="key1"  flag="vod"}	
+							<div class="module">
+								<div class="module-heading">
+									<h2 class="module-title"><a href="{:mac_url_type($vo1,[],'type')}">{$vo1.type_name}<span class="module-title-en">{$vo1.type_en}</span></a></h2>
+									 {if$vo1.childids||$vo1.parent.childids}
+									<div class="module-tab"><label class="module-tab-name"><span class="module-tab-value">推荐</span><i class="icon-arrow"></i></label>
+										<div class="module-tab-items">
+											<div class="module-tab-title">选择类型<span class="close-drop"><i class="icon-close"></i></span></div>
+											<div class="module-tab-items-box"><span class="module-tab-item tab-item active" data-dropdown-value="推荐">推荐</span>
+										{maccms:type parent="'.$vo1['type_id'].'" order="asc" by="sort" id="vo2" key="key2"}
+											<span class="module-tab-item tab-item" data-dropdown-value="{$vo2.type_name}">{$vo2.type_name}</span>
+										 {/maccms:type}
+											</div>
+										</div>
+									</div>
+									 {else}
+									 <div class="module-tab-items">
+									   <div class="module-tab-title">选择类型<span class="close-drop"><i class="icon-close"></i></span></div>
+									   <a class="module-heading-more" href="{:mac_url_type($vo1,[],'type')}">更多<i class="icon-arrow-right"></i></a>
+									   </div>
+									 {/if}
+									<div class="shortcuts-mobile-overlay"></div>
+								</div>
+								<div class="module-main tab-list {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}scroll-box{/if} active">
+									<div class="module-items  {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}module-poster-items-small scroll-content {else}module-poster-items-base {/if}">
+									    {maccms:vod num="'.$mxprost['mxprocms']['s3']['indexlistnum1'].'" type="'.$vo1['type_id'].'" order="'.$mxprost['mxprocms']['s3']['indexlistorder1'].'" by="'.$mxprost['mxprocms']['s3']['indexlistby1'].'" year="'.$mxprost['mxprocms']['s3']['indexlistyear1'].'"}
+										{include file="block/vodbox"}
+										 {/maccms:vod}
+									</div>
+								</div>
+									{maccms:type parent="'.$vo1['type_id'].'" order="asc" by="sort" id="vo2" key="key2"}
+								<div class="module-main tab-list {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}scroll-box{/if}">
+									<div class="module-items {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}module-poster-items-small scroll-content {else}module-poster-items-base {/if}">
+									    {maccms:vod num="'.$mxprost['mxprocms']['s3']['indexlistnum1'].'" type="'.$vo2['type_id'].'" order="'.$mxprost['mxprocms']['s3']['indexlistorder1'].'" by="'.$mxprost['mxprocms']['s3']['indexlistby1'].'" year="'.$mxprost['mxprocms']['s3']['indexlistyear1'].'"}
+										{include file="block/vodbox"}
+										 {/maccms:vod}
+									</div>
+								</div>
+									 {/maccms:type}
+							</div>
+				        {/maccms:type}

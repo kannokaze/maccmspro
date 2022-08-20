@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+		<html lang="zh-CN">
+		<head>
+		    {include file="public/include"}
+			<title>追剧周表-{$maccms.site_name}</title>
+            <meta name="keywords" content="{$maccms.site_keywords}" />
+            <meta name="description" content="{$maccms.site_description}" />
+            {assign name="$maccms.aid" value="9996" /}
+                <style>   @media(max-width:559px){.page .main {	padding-top: 80px;}}</style>
+		</head>
+		<body>
+		<div class="page list">
+  {include file="public/head"}
+		<div class="main">
+			<div class="content">
+			<?php
+      function m_day($t)
+         {
+            if(empty($t)) { return ''; }
+            if(is_numeric($t)){
+               $t = date('Y-m-d H:i:s',$t);
+            }
+            $now = date('Y-m-d',time());
+            if(strpos(','.$t,$now)>0){
+               return 1;
+            }
+            return  0;
+         }
+         $week=explode(',',$GLOBALS['config']['app']['vod_extend_weekday']);
+         $ws = date("w");
+         if($ws == 0){
+            $ws = 7;
+         };
+         $weekarray=$week[$ws-1];
+      ?>
+
+	<div class="module">
+		<div class="module-heading m-module-heading">
+			<h2 class="module-title m-module-title">{$mxprost.mxprocms.s3.indexweektext}</h2>
+			<div class="module-tab m-module-tab">
+				<div class="module-tab-week m-module-tab-week">
+					{maccms:foreach name="$week" id="vo" key="key"}
+					<span class="module-tab-item m-tab-item tab-item {if $weekarray==$vo}active{/if}" data-dropdown-value="周{$vo}">周{$vo}</span> {/maccms:foreach}
+				</div>
+			</div>
+		</div>
+		{maccms:foreach name=":explode(',',$maccms.vod_extend_weekday)" id="vo1" key="key1"}
+		<div class="module-main tab-list  {if $weekarray==$vo1}active{/if}">
+			<div class="module-items module-poster-items-base">
+				{maccms:vod type="all" weekday="'.$vo1.'" order="desc" by="time" num="'.$mxprost['mxprocms']['s3']['indexweeknum'].'"}
+				 {include file="block/weekbox"}
+				{/maccms:vod}
+			</div>
+		</div>
+		{/maccms:foreach}
+	</div>	
+			</div>
+		</div>
+  {include file="public/foot"}
+</div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+	                	<div class="header">
+						<div class="header-box">
+							<div class="logo {if condition="$mxprost['mxprocms']['s2']['navtheme'] eq 1"}nonenav{/if}">
+								<a href="{$maccms.path}" title="{$maccms.site_name}"><img class="logo2"  src="{:mac_url_img($mxprost.mxprocms.s1.logo2)}" alt="{$maccms.site_name}" >
+								<img class="logo1" src="{:mac_url_img($mxprost.mxprocms.s1.logo1)}" /></a>
+							</div>
+						
+							<div class="search-box {if condition="$mxprost['mxprocms']['s2']['navtheme'] eq 1"}nonenav{/if}">
+								<div class="searchbar-main">
+						        <form name="search" method="get" action="{:mac_url('vod/search')}" onSubmit="return qrsearch();">
+									<div class="searchbar">
+									   <input class="search-input"  type="text" name="wd" autocomplete="off" placeholder="{$mxprost.mxprocms.s1.searchwd}">
+							        <button class="search-btn search-go" id="searchbutton" type="submit"><i class="icon-search"></i></button>
+									  <button class="cancel-btn" type="button">取消</button></div>
+									<div class="search-recommend-box">
+										<div class="search-recommend">
+											<div class="search-recommend-title"><strong>大家都在搜</strong></div>
+											<div class="search-tag">
+											{maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+						                    <a href="{:mac_url('vod/search',['wd'=>$vo2])}" class="{if condition=" $key2 lt 4 "}hot {else}{/if}"><i class="icon-hot"></i>{$vo2}</a>
+						                    {/maccms:foreach}
+											</div>
+										</div>
+									</div>
+								</form>
+								</div>
+							</div>
+							
+							<div class="header-op">
+								<div class="header-op-list">
+									<div class="drop">
+										<div class="header-op-list-btn header-op-history"><i class="icon icon-history-o"></i><span>观看记录</span></div>
+										<div class="drop-content drop-history">
+											<div class="drop-content-box">
+												<ul class="drop-content-items historical">
+													<li class="drop-item drop-item-title"><i class="icon icon-history"></i><strong>我的观影记录</strong></li>
+												</ul>
+											</div>
+										</div>
+										<div class="shortcuts-mobile-overlay"></div>
+									</div>
+									{if condition="$maccms.user_status eq 1"}
+									{if condition="$GLOBALS['user']['user_id']" gt 0}
+									<div class="member_group">
+									 <img  src="{$user.user_id|mac_get_user_portrait}" class="useimg">
+									    <div class="user_list_drop">
+									        <div class="drop_content">
+    									        <ul>
+    									            <li>
+    									                <a href="{:mac_url('user/index')}"><i class="icon icon-yh"></i>个人主页</a>
+    									            </li>
+    									             <li>
+    									                <a href="{:mac_url('user/info')}"><i class="icon icon-sz"></i>帐号设置</a>
+    									            </li>
+    									              <li>
+    									                <a href="{:mac_url('user/favs')}"><i class="icon icon-score"></i>我的收藏</a>
+    									            </li>
+    									            <li>
+    									                <a href="{:mac_url('user/upgrade')}"><i class="icon icon-vip"></i>升级会员</a>
+    									            </li>
+    									        </ul>
+    									        <div class="logout">
+    									            <a href="{:mac_url('user/logout')}">
+    									                <i class="icon icon-exit"></i>
+    									                <span>退出登录</span>
+    									            </a>
+    									        </div>
+									        </div>
+									    </div>
+                                	</div>
+									 {else/}
+									<div class="mac_user header-op-user"  title="会员中心">登录</div>
+									{/if}
+									{/if}
+									<div class="header-op-list-btn header-op-search"><i class="icon icon-search"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
+						<div class="sidebar">
+						<div class="navbar {if condition="$mxprost['mxprocms']['s2']['navtheme'] eq 1"}open{/if}">
+							<ul class="navbar-items swiper-wrapper">
+								<li class="swiper-slide navbar-item {if condition="$maccms.aid eq 1"}active{/if}">
+									<a href="{$maccms.path}" class="links">
+										<div {if condition="$maccms.aid eq 1"}class="current"{/if}></div><i class="icon-arrow-go"></i><i class="icon icon-home-o"></i><span>首页</span></a>
+								</li>
+							<li class="navbar-hr"></li>
+								{maccms:type  order="asc" by="sort" ids="'.$mxprost['mxprocms']['s2']['daohangid'].'" flag="vod" }
+								<li class="swiper-slide navbar-item {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"}active{/if}">
+									<a href="{:mac_url_type($vo)}" title="{$vo.type_name}" class="links">
+									    {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"}<div class="current"></div>{/if}
+									<i class="icon-arrow-go"></i>
+									{if condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num1||$vo.type_id eq $mxprost.mxprocms.s2.num1"}
+								   <i class="{$mxprost.mxprocms.s2.icon1}"></i>
+								   {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num2||$vo.type_id eq $mxprost.mxprocms.s2.num2"}
+                                <i class="{$mxprost.mxprocms.s2.icon2}"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num3||$vo.type_id eq $mxprost.mxprocms.s2.num3"}
+                                <i class="{$mxprost.mxprocms.s2.icon3}"></i>
+                                {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num4||$vo.type_id eq $mxprost.mxprocms.s2.num4"}
+                                <i class="{$mxprost.mxprocms.s2.icon4}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num5||$vo.type_id eq $mxprost.mxprocms.s2.num5"}
+                                <i class="{$mxprost.mxprocms.s2.icon5}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num6||$vo.type_id eq $mxprost.mxprocms.s2.num6"}
+                                <i class="{$mxprost.mxprocms.s2.icon6}"></i>
+                                 {elseif condition="$vo.type_id_1 eq $mxprost.mxprocms.s2.num7||$vo.type_id eq $mxprost.mxprocms.s2.num7"}
+                                <i class="{$mxprost.mxprocms.s2.icon7}"></i>
+                                {else}
+                                  <i class="icon-jl-o"></i>
+                                {/if}
+								<span>{$vo.type_name}</span></a>
+								</li>
+								{/maccms:type}
+								<li class="navbar-hr"></li>
+								{if condition="$mxprost['mxprocms']['s2']['week'] eq 1"}
+								<li class="swiper-slide navbar-item  {if condition="$maccms.aid eq 9996"}active{/if}">
+									<a href="{:mac_url('label/week')}" class="links">
+									      {if condition="$maccms.aid eq 9996"}<div class="current"></div>{/if}
+									<i class="icon-arrow-go"></i><i class="icon icon-week-o"></i><span>追剧周表</span></a>
+								</li>
+								{/if}
+								{if condition="$mxprost['mxprocms']['s2']['todaynew'] eq 1"}
+								<li class="swiper-slide navbar-item  {if condition="$maccms.aid eq 9999"}active{/if}">
+									<a href="{:mac_url('label/new')}" class="links">
+									      {if condition="$maccms.aid eq 9999"}<div class="current"></div>{/if}
+									<i class="icon-arrow-go"></i><i class="icon icon-update-o"></i><span>今日更新</span><small>{:mac_data_count(0,'today','vod')}</small></a>
+								</li>
+								{/if}
+								{if condition="$mxprost['mxprocms']['s2']['navhot'] eq 1"}
+								<li class="swiper-slide navbar-item  {if condition="$maccms.aid eq 9998"}active{/if}">
+									<a href="{:mac_url('label/hot')}" class="links">
+									    	      {if condition="$maccms.aid eq 9998"}<div class="current"></div>{/if}
+									<i class="icon-arrow-go"></i><i class="icon icon-ranking-o"></i><span>热榜</span></a>
+								</li>
+								{/if}
+								{if condition="$mxprost['mxprocms']['s2']['app'] eq 1"}
+								<li class="swiper-slide navbar-item {if condition="$maccms.aid eq 9997"}active{/if}">
+									<a href="{$mxprost.mxprocms.s2.appurl}" class="links" 	{if condition="$mxprost['mxprocms']['s2']['target'] eq 1"}target="_blank"{/if}>
+									<i class="icon-arrow-go"></i><i class="icon {$mxprost.mxprocms.s2.appicon}"></i><span>{$mxprost.mxprocms.s2.appname}</span></a>
+								</li>
+								{/if}
+								{if condition="$mxprost['mxprocms']['s2']['diy1'] eq 1"}
+								<li class="swiper-slide navbar-item">
+									<a href="{$mxprost.mxprocms.s2.diy1url}" class="links" target="_blank" title="{$mxprost.mxprocms.s2.diy1name}">
+									<i class="icon-arrow-go"></i><i class="icon {$mxprost.mxprocms.s2.diy1icon}"></i><span>{$mxprost.mxprocms.s2.diy1name}</span></a>
+								</li>
+								{/if}
+								{if condition="$mxprost['mxprocms']['s2']['diy2'] eq 1"}
+								<li class="swiper-slide navbar-item">
+									<a href="{$mxprost.mxprocms.s2.diy2url}" class="links" target="_blank" title="{$mxprost.mxprocms.s2.diy2name}">
+									<i class="icon-arrow-go"></i><i class="icon {$mxprost.mxprocms.s2.diy2icon}"></i><span>{$mxprost.mxprocms.s2.diy2name}</span></a>
+								</li>
+								{/if}
+							</ul>
+						</div>
+						<div class="side-op">
+							<div class="header-op-list">
+									<div class="drop">
+										<div class="header-op-list-btn header-op-history"><i class="icon icon-history-o"></i><span>观看记录</span></div>
+										<div class="drop-content drop-history">
+											<div class="drop-content-box">
+												<ul class="drop-content-items historical">
+													<li class="drop-item drop-item-title"><i class="icon icon-history"></i><strong>我的观影记录</strong></li>
+												</ul>
+											</div>
+										</div>
+										<div class="shortcuts-mobile-overlay"></div>
+									</div>
+								<div class="header-op-list-btn header-op-search"><i class="icon icon-search"></i></div>
+									{if condition="$maccms.user_status eq 1"}
+									{if condition="$GLOBALS['user']['user_id']" gt 0}
+									<div class="member_group">
+									 <img  src="{$user.user_id|mac_get_user_portrait}" class="useimg">
+									    <div class="user_list_drop">
+									        <div class="drop_content">
+    									        <ul>
+    									            <li>
+    									                <a href="{:mac_url('user/index')}"><i class="icon icon-yh"></i>个人主页</a>
+    									            </li>
+    									             <li>
+    									                <a href="{:mac_url('user/info')}"><i class="icon icon-sz"></i>帐号设置</a>
+    									            </li>
+    									              <li>
+    									                <a href="{:mac_url('user/favs')}"><i class="icon icon-score"></i>我的收藏</a>
+    									            </li>
+    									            <li>
+    									                <a href="{:mac_url('user/upgrade')}"><i class="icon icon-vip"></i>升级会员</a>
+    									            </li>
+    									        </ul>
+    									        <div class="logout">
+    									            <a href="{:mac_url('user/logout')}">
+    									                <i class="icon icon-exit"></i>
+    									                <span>退出登录</span>
+    									            </a>
+    									        </div>
+									        </div>
+									    </div>
+                                	</div>
+                                	{else/}
+                                	<div class="member_group">
+									<div class="mac_user"><img  src="{$user.user_id|mac_get_user_portrait}" class="useimg"></div>
+									</div>
+									{/if}
+									{/if}
+							</div>
+						</div>
+					</div>
+					{if condition="$mxprost['mxprocms']['s2']['navtheme'] eq 1"}
+					<style>
+					@media (max-width: 559px){
+                    .header { padding: 20px 15px 20px;height: auto;}
+                    .homepage:after {background: none;}
+                    .homepage .side-op{right: 0}
+					}
+                    </style>
+                    <script>
+                         $(".header-op-search").click(function () {
+                             $(".search-box").toggleClass("nonenav");
+                             });
+                        $('.cancel-btn').click(function() {
+                            $(".search-box").addClass("nonenav");
+                        })
+                          $(document).scroll(function() {
+		                var H = $(document).scrollTop();
+		                if(H > 20) {
+		                $(".sidebar").addClass("sidebar-bg");
+	        	        } else {
+		                 $(".sidebar").removeClass("sidebar-bg");
+		                 }
+	                     });
+	                       $(document).click(function (e) {
+                 if (($(e.target).closest(".search-input").length == 0 || $(e.target).closest(".cancel-btn").length != 0) && $(e.target).closest(".header-op-search").length == 0) { $(".search-box").addClass("nonenav");}});
+                    </script>
+                    {if condition="$maccms.user_status eq 1"}
+                    <style>.homepage .side-op .header-op-search{display:block;}</style>
+                    
+                       {/if}
+                    {/if}
+                    {if condition="$mxprost['mxprocms']['s2']['navtheme'] eq 0"}
+                    <script>
+	            $(document).scroll(function() {
+		        var H = $(document).scrollTop();
+		            if(H > 20) {
+		          $(".sidebar").addClass("sidebar-bg");
+	        	} else {
+		        $(".sidebar").removeClass("sidebar-bg");
+		        }
+			    if(H > 140) {
+		        $(".navbar").addClass("open");
+		    	$(".side-op").addClass("open");
+		        } else {
+		           $(".navbar").removeClass("open");
+		  	     $(".side-op").removeClass("open");
+	            	}
+	            });
+                    </script>
+                    {if condition="$maccms.user_status eq 1"}
+                     <style>.homepage .side-op .header-op-search{display:none;}</style>
+                     {/if}
+                     <style>
+             @media (max-width: 559px){.homepage .header{{$mxprost.mxprocms.s2.diyheaddm}}.homepage .sidebar{{$mxprost.mxprocms.s2.diy2headdm}}}</style>
+                    {/if}
+                    	

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+ 	{include file="public/include"}
+  <title>我的权限 - 个人中心 - {$maccms.site_name}</title> 
+  <meta name="keywords" content="个人中心,{$maccms.site_keywords}" /> 
+  <meta name="description" content="{$maccms.site_description}" />
+  {include file="user/include"}
+ </head>
+ <body class="mxui-min-width">  
+ <div class="page list">
+      {include file="public/head"} 
+   <div class="mxui-part-case main"> 
+    <div class="mxui-user-head mxui-margin-top mxui-back-whits"> 
+     <div class="mxui-list-pics mxui-lazy mxui-part-5by2 mxui-part-rows" style="background:url({:mac_url_img($mxprost.mxprocms.s1.userbg)});"> 
+      <div class="mxui-part-core mxui-text-center"> 
+       <div class="mxui-user-image" data-role="{:mac_url('user/portrait')}"> 
+        <img class="face mxui-user-avat mxui-part-roun" src="{$obj.user_portrait|mac_default='static/images/touxiang.png'|mac_url_img}?v={:time()}" /> 
+       </div> 
+       <span class="mxui-visible mxui-text-white mxui-padding">{$obj.user_name}</span> 
+      </div> 
+     </div> 
+     <div class="mxui-padding mxui-part-rows mxui-back-whits mxui-hide-md"> 
+      <ul class="mxui-user-brief mxui-part-rows mxui-back-whits"> 
+       <li class="mxui-padding-x mxui-text-center mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_points}</span> <span class="mxui-visible">我的积分</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.group.group_name}</span> <span class="mxui-visible">我的等级</span> </li> 
+       <li class="mxui-padding-x mxui-text-center mxui-line-left mxui-col-xs4"> <span class="mxui-visible mxui-text-gules">{$obj.user_login_num}</span> <span class="mxui-visible">登录次数</span> </li> 
+      </ul> 
+     </div> 
+    </div> 
+    <div class="mxui-part-rows"> 
+     <div class="mxui-main-left mxui-col-xs12 mxui-col-md4 mxui-col-lg3 mxui-hide-xs mxui-hide-sm mxui-show-md-block">
+       {include file="user/menu"} 
+     </div> 
+     <div class="mxui-main-right mxui-col-xs12 mxui-col-md8 mxui-col-lg9"> 
+      <div class="mxui-part-layout mxui-back-whits"> 
+       <div class="mxui-user-title mxui-list-head mxui-part-rows mxui-padding mxui-line-bottom"> 
+        <h2 class="mxui-font-xvi mxui-padding">我的权限</h2> 
+        <ul class="mxui-part-tips mxui-padding"> 
+         <li class="mxui-padding"> <a class="mxui-more" href="{:mac_url('user/index')}">返回</a> </li> 
+        </ul> 
+       </div> 
+       <ul class="mxui-user-list mxui-part-rows mxui-back-whits mxui-vodlist__text to-color">
+           	<li class="mxui-striped-head mxui-padding-x mxui-part-rows ">
+			<span class="mxui-col-xs2">类目</span>
+		    <span class="mxui-col-xs2">列表页</span>
+			<span class="mxui-col-xs2">内容页</span>
+			<span class="mxui-col-xs2">播放页</span>
+			<span class="mxui-col-xs2">下载页</span>
+			<span class="mxui-col-xs2">试看</span>
+			</li>
+         {volist name="type_tree" id="vo"} 
+        <li class="mxui-padding-x mxui-part-rows"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows mxui-text-center"> 
+          <span class="mxui-col-xs2 mxui-col-sm2 mxui-part-eone">{$vo.type_name}</span> 
+        
+          {foreach name="$vo.popedom" id="v2"}{if condition="$v2 eq 1"}
+          <span class="mxui-col-xs2 mxui-col-sm2 mxui-text-bold">√</span>
+          {else} 
+          <span class="mxui-col-xs2 mxui-col-sm2 mxui-text-bold">×</span> 
+          {/if}
+          {/foreach} 
+         </div> 
+         </li>
+         {volist name="vo.child" id="child"} 
+        <li class="mxui-padding-x mxui-part-rows mxui-line-bottom"> 
+         <div class="mxui-user-input mxui-visible mxui-font-xvi mxui-part-rows mxui-text-center"> 
+          <span class="mxui-col-xs2 mxui-col-sm2 mxui-part-eone">{$child.type_name}</span> 
+         {foreach name="$child.popedom" id="v2"}{if condition="$v2 eq 1"}<span class="mxui-col-xs2 mxui-col-sm2  mxui-text-bold">√</span> {else}<span class="mxui-col-xs2 mxui-col-sm2  mxui-text-bold">×</span> {/if}{/foreach}
+         </div> </li> {/volist}{/volist} 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="public/foot"}
+  <script>
+	$(".face").imageUpload({
+		formAction: "{:url('user/portrait')}",
+		inputFileName:'file',
+		browseButtonValue: '',
+		browseButtonClass:'btn btn-default btn-xs mxui-user-alter mxui-part-roun mxui-icon-font icon-xiugai',
+		automaticUpload: true,
+		hideDeleteButton: true,
+		hover:true
+	})
+	$(".jQuery-image-upload-controls").mouseenter(function(){
+    $(".jQuery-image-upload-controls").css("display","block");
+	});
+	$(".jQuery-image-upload-controls").mouseleave(function(){
+    $(".jQuery-image-upload-controls").css("display","none");
+	});
+	$(".face").on("imageUpload.uploadFailed", function (ev, err) {
+		layer.msg(err);
+	});
+</script>  
+ </body>
+</html>

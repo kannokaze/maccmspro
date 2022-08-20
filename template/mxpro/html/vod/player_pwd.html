@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+	<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>系统提示......</title>
+    <style>
+        body{background:#000000;color:#818181}
+        input{border:1px solid #ccc;padding:7px 0;border-radius:3px;padding-left:5px;width: 100px; margin-right: 10px;}
+        .item{line-height:50px}
+        .submit_btn{display:inline-block;color:#fff;width:100%;border:none;border-radius:4px;line-height:40px;cursor:pointer;text-align:center;background:#ff2a14;color:#fff;text-decoration: none;}
+         .submit_btn:hover{background:linear-gradient(90deg,#ff9800,#ff2a14) !important;color:#fff}
+        .mac_msg_jump{ width: 90%;text-align: center;position: absolute;top: 50%;left: 50%;z-index: 99999;
+    transform: translate(-50%, -50%);}
+        .msg_jump_tit{color: #F6F6F6;font-size: 18px;padding-bottom: 2px;height: 35px;letter-spacing: 5px;text-align: center;}
+        .mac_pop_msg{position: absolute;width: 5px;height: 5px;top: 50%;left: 50%;margin: -56px 0 0 -150px;text-align: center;	font-size: 12px;	color: #ff5f00; }
+         .mm{color: #F6F6F6;text-decoration:none;}
+         input:-webkit-autofill{-webkit-box-shadow:0 0 0px 1000px white inset}
+    </style>
+ <script src="{$maccms.path}mxtheme/js/jquery.min.js"></script>
+    <script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+ <script src="{$maccms.path}mxtheme/js/home.js"></script>
+<script src="{$maccms.path}mxtheme/js/layer.min.js"></script>
+<link rel="stylesheet" href="{$maccms.path}mxtheme/js/theme/default/layer.css" type="text/css">
+</head>
+<body>
+<div class="mac_msg_jump">
+    <div class="msg_jump_tit">系统提示</div>
+    <div class="title">访问此数据需要密码</div>
+    <div class="text" style="display: inline-block;">
+        <form id="form1" name="form1" action=""  method="post">
+            <div class="item">
+                <label>密码：</label>
+                <input type="password" name="pwd"  placeholder="访问密码..."/>
+                {if condition="$obj.vod_pwd_play_url neq ''"}
+                    <a class="mm" href="{$obj.vod_pwd_url}" target="_blank">获取密码</a>
+                {else/}
+                    <span>密码：{$obj.vod_pwd_play}</span>
+                {/if}
+            </div>
+            <div class="item">
+                <a class="submit_btn" href="javascript:;" data-mid="1" data-id="{$obj.vod_id}" data-type="4">确认</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+      	<script type="text/javascript">
+		$('body').on('click', '.submit_btn', function(e){
+			var $that = $(this);
+	       if($that.attr("data-id")){
+	                 $.ajax({
+                        url: maccms.path + '/index.php/ajax/pwd.html?id=' + $that.attr("data-id") + '&mid=' + $that.attr("data-mid") + '&type=' + $that.attr("data-type") + '&pwd='+ $that.parents('form').find('input[name="pwd"]').val(),
+                        cache: false,
+                        dataType: 'json',
+                        success: function ($r) {
+                            $that.addClass('disabled');
+                            layer.msg($r.msg)
+                            if ($r.code == 1) {
+                                top.location.reload();
+                            }
+                        }
+                    });
+	       }
+		});
+	</script>
+</body>
+</html>
+
+
+

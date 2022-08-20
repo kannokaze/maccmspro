@@ -1,0 +1,233 @@
+<div class="layui-tab-item">
+	<div class="layui-col-md12">
+		<div class="layui-card">
+			<div class="layui-card-header">幻灯片设置</div>
+			<div class="layui-card-body" pad15="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">幻灯状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][slide]" {if condition="$config['mxprocms']['s3']['slide'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+						<div class="layui-form-item">
+					<label class="layui-form-label">幻灯片竖图海报</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][slidebill]" {if condition="$config['mxprocms']['s3']['slidebill'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">开启后幻灯片右侧显示竖图海报,关闭则不显示。</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">指定推荐值：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][slidetj]" type="text" value="{$config['mxprocms']['s3']['slidetj']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认推荐“5”,可填写1-9，all为全部</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">展示最大数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][slidenum]" type="text" value="{$config['mxprocms']['s3']['slidenum']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认显示数量10个,可随意填写数量</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排序依据：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][slideby]" type="text" value="{$config['mxprocms']['s3']['slideby']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排序依据time,自行根据官方文档标签进行更改</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排列顺序：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][slideorder]" type="text" value="{$config['mxprocms']['s3']['slideorder']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排列顺序asc,可填写desc倒序或asc正序</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">视频副标题：</label>
+					<div class="layui-input-inline w70"><input type="checkbox" name="mxprocms[s3][slidefb]" {if condition="$config['mxprocms']['s3']['slidefb'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭"></div>
+					<div class="layui-form-mid layui-word-aux">默认副标题为简介,关闭则显示演员</div>
+				</div>
+			</div>
+		</div>
+        		<div class="layui-card">
+			<div class="layui-card-header">周表设置</div>
+			<div class="layui-card-body" pad15="">
+		    <div class="layui-form-item"><label class="layui-form-label">友情提示</label>
+					<div class="layui-input-block  w600">
+					<blockquote class="layui-elem-quote" style="padding: 10px;">周表视频苹果cms后台视频编辑填写【一至日】,视频填8个方可显示正常视频数量</blockquote>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][indexweek]" {if condition="$config['mxprocms']['s3']['indexweek'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块标题：</label>
+					<div class="layui-input-inline w200"><input name="mxprocms[s3][indexweektext]" type="text" value="{$config['mxprocms']['s3']['indexweektext']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">周表模块显示的标题</div>
+				</div>
+                <div class="layui-form-item">
+					<label class="layui-form-label">视频数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexweeknum]" type="text" value="{$config['mxprocms']['s3']['indexweeknum']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认为空无限制,可随意填写数量</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-card">
+			<div class="layui-card-header">推荐模块</div>
+			<div class="layui-card-body" pad15="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][indexhot]" {if condition="$config['mxprocms']['s3']['indexhot'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">横图封面</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline  w70">
+							<input type="checkbox" name="mxprocms[s3][indexhotpic]" {if condition="$config['mxprocms']['s3']['indexhotpic'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">默认横图，关闭后显示为竖图封面</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块标题：</label>
+					<div class="layui-input-inline w200"><input name="mxprocms[s3][indexhottext]" type="text" value="{$config['mxprocms']['s3']['indexhottext']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">推荐模块显示的标题</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">指定推荐值：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexhottj]" type="text" value="{$config['mxprocms']['s3']['indexhottj']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认推荐“1”,可填写1-9</div>
+				</div>
+                <div class="layui-form-item">
+					<label class="layui-form-label">视频数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexhotnum]" type="text" value="{$config['mxprocms']['s3']['indexhotnum']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认16个,可随意填写数量</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-card">
+			<div class="layui-card-header">分类模块</div>
+			<div class="layui-card-body" pad15="">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][indexlist]" {if condition="$config['mxprocms']['s3']['indexlist'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">指定分类：</label>
+					<div class="layui-input-inline"><input name="mxprocms[s3][indexlistid]" type="text" value="{$config['mxprocms']['s3']['indexlistid']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">填写显示的分类列表ID,默认分类parent</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexlistnum1]" type="text" value="{$config['mxprocms']['s3']['indexlistnum1']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认16个,可随意填写数量</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排序依据：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexlistby1]" type="text" value="{$config['mxprocms']['s3']['indexlistby1']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排序依据time,自行根据官方文档标签进行更改</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">年份：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexlistyear1]" type="text" value="{$config['mxprocms']['s3']['indexlistyear1']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认年份为2022,自行填写年份进行排序,可填写多个如2021,2022</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排列顺序：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexlistorder1]" type="text" value="{$config['mxprocms']['s3']['indexlistorder1']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排列顺序asc,可填写desc倒序或asc正序</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-card">
+			<div class="layui-card-header">排行榜模块</div>
+			<div class="layui-card-body" pad15="">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][indextop]" {if condition="$config['mxprocms']['s3']['indextop'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">指定分类：</label>
+					<div class="layui-input-inline"><input name="mxprocms[s3][indextopid]" type="text" value="{$config['mxprocms']['s3']['indextopid']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">填写显示的分类列表ID,默认分类parent</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块标题：</label>
+					<div class="layui-input-inline w200"><input name="mxprocms[s3][indextoptext]" type="text" value="{$config['mxprocms']['s3']['indextoptext']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">排行榜模块显示的标题</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块副标题：</label>
+					<div class="layui-input-inline w200"><input name="mxprocms[s3][indextopeg]" type="text" value="{$config['mxprocms']['s3']['indextopeg']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">排行榜模块显示的副标题</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indextopnum]" type="text" value="{$config['mxprocms']['s3']['indextopnum']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认10个,可随意填写数量</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排序依据：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indextopby]" type="text" value="{$config['mxprocms']['s3']['indextopby']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排序依据hits,自行根据官方文档标签进行更改</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">年份：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indextopyear]" type="text" value="{$config['mxprocms']['s3']['indextopyear']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认年份为2022,自行填写年份进行排序,可填写多个如2021,2022</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">排列顺序：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indextoporder]" type="text" value="{$config['mxprocms']['s3']['indextoporder']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认排列顺序asc,可填写desc倒序或asc正序</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-card">
+			<div class="layui-card-header">友情链接模块</div>
+			<div class="layui-card-body" pad15="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s3][indexlink]" {if condition="$config['mxprocms']['s3']['indexlink'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">数量：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s3][indexlinknum]" type="text" value="{$config['mxprocms']['s3']['indexlinknum']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认99个,可随意填写数量</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

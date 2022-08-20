@@ -1,0 +1,345 @@
+<div class="layui-tab-item">
+	<div class="layui-col-md12">
+		<div class="layui-card">
+			<div class="layui-card-header">导航菜单</div>
+			<div class="layui-card-body" pad15="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">导航分类ID：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][daohangid]" type="text" value="{$config['mxprocms']['s2']['daohangid']}" size="60" class="layui-input"></div>
+					<div class="layui-form-mid layui-word-aux">默认导航分类ID为parent,一级或二级分类id，多个用,隔开 【请填写ID再配置下面的ID和图标】</div>
+				</div>
+				<div class="layui-form-item"><label class="layui-form-label">友情提示</label>
+					<div class="layui-input-block  w600">
+						<blockquote class="layui-elem-quote" style="padding: 10px;">导航分类仅支持7个可自定义图标，超出则使用默认图标，
+							<a href="/mxtheme/iconfont.html" target="_blank" style="color:red">点击查看所有图标</a>。</blockquote>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">默认图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][iconmr]" type="text" value="{$config['mxprocms']['s2']['iconmr']}" size="60" class="layui-input"></div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类一的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num1]" type="text" value="{$config['mxprocms']['s2']['num1']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类一的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon1]" type="text" value="{$config['mxprocms']['s2']['icon1']}" size="60" class="layui-input"></div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类二的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num2]" type="text" value="{$config['mxprocms']['s2']['num2']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类二的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon2]" type="text" value="{$config['mxprocms']['s2']['icon2']}" size="60" class="layui-input"></div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类三的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num3]" type="text" value="{$config['mxprocms']['s2']['num3']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类三的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon3]" type="text" value="{$config['mxprocms']['s2']['icon3']}" size="60" class="layui-input"></div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类四的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num4]" type="text" value="{$config['mxprocms']['s2']['num4']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类四的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon4]" type="text" value="{$config['mxprocms']['s2']['icon4']}" size="60" class="layui-input"></div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类五的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num5]" type="text" value="{$config['mxprocms']['s2']['num5']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类五的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon5]" type="text" value="{$config['mxprocms']['s2']['icon5']}" size="60" class="layui-input"></div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类六的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num6]" type="text" value="{$config['mxprocms']['s2']['num6']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类六的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon6]" type="text" value="{$config['mxprocms']['s2']['icon6']}" size="60" class="layui-input"></div>
+				</div>
+                		<div class="layui-form-item">
+					<label class="layui-form-label">分类七的id：</label>
+					<div class="layui-input-inline w70"><input name="mxprocms[s2][num7]" type="text" value="{$config['mxprocms']['s2']['num7']}" size="60" class="layui-input"></div>
+					<label class="layui-form-label">分类七的图标：</label>
+					<div class="layui-input-inline w300"><input name="mxprocms[s2][icon7]" type="text" value="{$config['mxprocms']['s2']['icon7']}" size="60" class="layui-input"></div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-form-item">
+						<label class="layui-form-label">自定义导航1</label>
+						<div class="layui-input-inline w70">
+							<select name="mxprocms[s2][diy1]">
+								<option value="0" {if condition="$config['mxprocms']['s2']['diy1'] eq 0" }selected {/if}>隐藏</option>
+								<option value="1" {if condition="$config['mxprocms']['s2']['diy1'] eq 1" }selected {/if}>显示</option>
+							</select>
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy1name]" placeholder="导航名称" value="{$config['mxprocms']['s2']['diy1name']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy1url]" placeholder="导航链接" value="{$config['mxprocms']['s2']['diy1url']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy1icon]" placeholder="导航图标" value="{$config['mxprocms']['s2']['diy1icon']}" class="layui-input">
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-form-item">
+						<label class="layui-form-label">自定义导航2</label>
+						<div class="layui-input-inline w70">
+							<select name="mxprocms[s2][diy2]">
+								<option value="0" {if condition="$config['mxprocms']['s2']['diy2'] eq 0" }selected {/if}>隐藏</option>
+								<option value="1" {if condition="$config['mxprocms']['s2']['diy2'] eq 1" }selected {/if}>显示</option>
+							</select>
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy2name]" placeholder="导航名称" value="{$config['mxprocms']['s2']['diy2name']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy2url]" placeholder="导航链接" value="{$config['mxprocms']['s2']['diy2url']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s2][diy2icon]" placeholder="导航图标" value="{$config['mxprocms']['s2']['diy2icon']}" class="layui-input">
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">今日更新</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][todaynew]" {if condition="$config['mxprocms']['s2']['todaynew'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容（导航菜单中的今日更新）</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">热榜</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][navhot]" {if condition="$config['mxprocms']['s2']['navhot'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容（导航菜单中的热榜）</div>
+					</div>
+				</div>
+					<div class="layui-form-item">
+					<label class="layui-form-label">追剧周表</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][week]" {if condition="$config['mxprocms']['s2']['week'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容（导航菜单中的追剧周表）</div>
+					</div>
+				</div>
+					<div class="layui-form-item">
+					<label class="layui-form-label">导航风格</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][navtheme]" {if condition="$config['mxprocms']['s2']['navtheme'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">本开关针对手机端，默认初始风格，开启后显示另一种风格</div>
+					</div>
+				</div>
+				    <fieldset class="layui-elem-field">
+						<legend>首页导航背景(手机端)</legend>
+								<div class="layui-form-item"><label class="layui-form-label">代码示例：</label>
+					<div class="layui-input-block  w600">
+						<blockquote class="layui-elem-quote" style="padding: 10px;">
+						    <p>背景颜色代码：background:颜色代码，例：background:#666</p>
+						    <p>背景图片代码：background: url(图片链接)center no-repeat;background-size: cover;</p>
+						</blockquote>
+					</div>
+				</div>
+	        <div class="layui-form-item">
+			<label class="layui-form-label">背景代码：</label>
+			<div class="layui-input-block">
+			<textarea name="mxprocms[s2][diyheaddm]" class="layui-textarea w600" placeholder="填写代码">{$config['mxprocms']['s2']['diyheaddm']}</textarea>
+			</div>
+            </div>
+            <div class="layui-form-item">
+			<label class="layui-form-label">滚动背景代码：</label>
+			<div class="layui-input-block">
+			<textarea name="mxprocms[s2][diy2headdm]" class="layui-textarea w600" placeholder="填写代码">{$config['mxprocms']['s2']['diy2headdm']}</textarea>
+			</div>
+            </div>
+			</fieldset>
+			</div>
+		</div>
+		<div class="layui-card">
+			<div class="layui-card-header">APP下载设置</div>
+			<div class="layui-card-body" pad15="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">模块状态</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][app]" {if condition="$config['mxprocms']['s2']['app'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+					</div>
+				</div>
+					<div class="layui-form-item">
+					<label class="layui-form-label">新窗口</label>
+					<div class="layui-input-block">
+						<div class="layui-input-inline w70">
+							<input type="checkbox" name="mxprocms[s2][target]" {if condition="$config['mxprocms']['s2']['target'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+						</div>
+						<div class="layui-form-mid layui-word-aux">默认当前页面打开网页，开启后新窗口打开网页</div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">APP导航标题</label>
+					<div class="layui-input-inline">
+						<input type="text" name="mxprocms[s2][appname]" value="{$config['mxprocms']['s2']['appname']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的导航标题名字</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">APP链接</label>
+					<div class="layui-input-inline">
+						<input type="text" name="mxprocms[s2][appurl]" value="{$config['mxprocms']['s2']['appurl']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的跳转链接</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">APP图标</label>
+					<div class="layui-input-inline">
+						<input type="text" name="mxprocms[s2][appicon]" value="{$config['mxprocms']['s2']['appicon']}" class="layui-input">
+					</div>
+					<div class="layui-form-mid layui-word-aux">显示的图标</div>
+				</div>
+                <fieldset class="layui-elem-field">
+						<legend>APP下载页面设置</legend>
+						<div class="layui-form-item">
+							<label class="layui-form-label">模块标题：</label>
+							<div class="layui-input-inline w700"><input name="mxprocms[s4][apptxt]" type="text" value="{$config['mxprocms']['s4']['apptxt']}" size="60" class="layui-input"></div>
+							<div class="layui-form-mid layui-word-aux">APP下载页面显示的标题</div>
+						</div>
+							<div class="layui-form-item">
+							<label class="layui-form-label">模块副标题：</label>
+							<div class="layui-input-inline w700"><input name="mxprocms[s4][appentxt]" type="text" value="{$config['mxprocms']['s4']['appentxt']}" size="60" class="layui-input"></div>
+							<div class="layui-form-mid layui-word-aux">APP下载页面显示的副标题</div>
+						</div>
+						<div class="layui-form-item">	
+					<div class="layui-form-item">
+						<label class="layui-form-label">按钮一</label>
+						<div class="layui-input-inline w70">
+							<select name="mxprocms[s4][android]">
+								<option value="0" {if condition="$config['mxprocms']['s4']['android'] eq 0" }selected {/if}>隐藏</option>
+								<option value="1" {if condition="$config['mxprocms']['s4']['android'] eq 1" }selected {/if}>显示</option>
+							</select>
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][androidtxt]" placeholder="按钮名称" value="{$config['mxprocms']['s4']['androidtxt']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][androidurl]" placeholder="按钮链接" value="{$config['mxprocms']['s4']['androidurl']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][androidicon]" placeholder="按钮图标" value="{$config['mxprocms']['s4']['androidicon']}" class="layui-input">
+						</div>
+					</div>
+									</div>
+								<div class="layui-form-item">				
+					<div class="layui-form-item">
+						<label class="layui-form-label">按钮二</label>
+						<div class="layui-input-inline w70">
+							<select name="mxprocms[s4][ios]">
+								<option value="0" {if condition="$config['mxprocms']['s4']['ios'] eq 0" }selected {/if}>隐藏</option>
+								<option value="1" {if condition="$config['mxprocms']['s4']['ios'] eq 1" }selected {/if}>显示</option>
+							</select>
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][iostxt]" placeholder="按钮名称" value="{$config['mxprocms']['s4']['iostxt']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][iosurl]" placeholder="按钮链接" value="{$config['mxprocms']['s4']['iosurl']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][iosicon]" placeholder="按钮图标" value="{$config['mxprocms']['s4']['iosicon']}" class="layui-input">
+						</div>
+					</div>
+							</div>
+						<div class="layui-form-item">
+						    	<div class="layui-form-item">
+						<label class="layui-form-label">按钮三</label>
+						<div class="layui-input-inline w70">
+							<select name="mxprocms[s4][win]">
+								<option value="0" {if condition="$config['mxprocms']['s4']['win'] eq 0" }selected {/if}>隐藏</option>
+								<option value="1" {if condition="$config['mxprocms']['s4']['win'] eq 1" }selected {/if}>显示</option>
+							</select>
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][wintxt]" placeholder="按钮名称" value="{$config['mxprocms']['s4']['wintxt']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][winurl]" placeholder="按钮链接" value="{$config['mxprocms']['s4']['winurl']}" class="layui-input">
+						</div>
+						<div class="layui-input-inline w300">
+							<input type="text" name="mxprocms[s4][winicon]" placeholder="按钮图标" value="{$config['mxprocms']['s4']['winicon']}" class="layui-input">
+						</div>
+					</div>
+						</div>
+									<div class="layui-form-item">
+									<label class="layui-form-label">二维码</label>
+									<div class="layui-input-inline w400">
+										<input type="text" name="mxprocms[s4][appewm]" placeholder="APP二维码" value="{$config['mxprocms']['s4']['appewm']}" class="layui-input upload-input" placeholder="建议180*180">
+									</div>
+									<div class="layui-input-inline w100">
+										<button type="button" class="layui-btn layui-btn-primary layui-upload" lay-data="{data:{thumb:0,thumb_class:'mxprocms[s4][appewm]'}}" id="upload14">选择文件</button>
+									</div>
+									<div class="layui-form-mid layui-word-aux">APP二维码</div>
+								</div>
+					</fieldset>
+			</div>
+		</div>
+            <div class="layui-card">
+            <div class="layui-card-header">右下角菜单</div>
+            <div class="layui-card-body" pad15="">
+                	 	<div class="layui-form-item">
+									<label class="layui-form-label">总开关</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][zongkg]" {if condition="$config['mxprocms']['s2']['zongkg'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+														<div class="layui-form-item">
+									<label class="layui-form-label">留言板</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][gbook]" {if condition="$config['mxprocms']['s2']['gbook'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+								
+								
+								<div class="layui-form-item">
+									<label class="layui-form-label">返回顶部</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][up]" {if condition="$config['mxprocms']['s2']['up'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+								
+								
+										
+								<div class="layui-form-item">
+									<label class="layui-form-label">切换深浅色</label>
+									<div class="layui-input-block">
+										<div class="layui-input-inline w70">
+											<input type="checkbox" name="mxprocms[s2][themekg]" {if condition="$config['mxprocms']['s2']['themekg'] eq 1" }checked{/if} value="1" lay-skin="switch" lay-text="开启|关闭">
+										</div>
+										<div class="layui-form-mid layui-word-aux">关闭后不显示对应模块和内容</div>
+									</div>
+								</div>
+               </div>
+            </div>
+	</div>
+</div>

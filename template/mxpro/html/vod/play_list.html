@@ -1,0 +1,100 @@
+                        	<div class="module-player-side">
+								<div class="module-player-info">
+									<div class="module-info-heading">
+										<h1><a href="{:mac_url_vod_detail($obj)}" title="{$obj.vod_name}">{$obj.vod_name}</a></h1>
+										<div class="module-info-tag">
+										<div class="module-info-tag-link"><a title="{$obj.vod_year|mac_default='未知'}" href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'year'=>$obj['vod_year']],'show')}">{$obj.vod_year|mac_default='未知'|mac_substring=4}</a></div>
+										<div class="module-info-tag-link"><a title="{$obj.vod_area|mac_default='未知'}" href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'area'=>$obj['vod_area']],'show')}">{$obj.vod_area|mac_default='未知'|mac_substring=2}</a></div>
+										<div class="module-info-tag-link">
+									{maccms:foreach name=":explode(',',$obj.vod_class)" id="vo2" key="key2"}
+										{if$key2 lt 2}
+					                	<a href="{:mac_url_type($obj.type.type_id,['id'=>$obj['type_id'],'class'=>$vo2],'show')}">{$vo2|mac_substring=9}</a><span class="slash">/</span>
+					                	 {/if}
+						            {/maccms:foreach}
+										</div>
+										</div>
+									</div>
+								</div>
+								<div class="module-player-handle-items">
+								    {if condition="$mxprost['mxprocms']['s4']['sort'] eq 1"}
+								     <div class="module-player-handle-item">
+										<div class="handle-btn" id="sortBtn">
+										 <span class="handle-btn-icon"><i class="icon-sort"></i></span><span class="handle-btn-name">排序</span>
+										 </div>
+									</div>
+										{/if}
+								    {if condition="$mxprost['mxprocms']['s4']['report'] eq 1"}
+									<div class="module-player-handle-item">
+										<div class="handle-btn" onclick="MAC.Gbook.Report('{$obj['vod_play_list'][$param['sid']]['player_info']['show']}线路-《{$obj.vod_name}》' + location.href,'{$param['sid']}')">
+										 <span class="handle-btn-icon"><i class="icon-report"></i></span><span class="handle-btn-name">报错</span>
+										 </div>
+									</div>
+									{/if}
+									{if condition="$mxprost['mxprocms']['s4']['share'] eq 1"}
+									<div class="module-player-handle-item share">
+										<div class="handle-btn share-btn" title="分享《{$obj.vod_name}》给朋友一起看" data-clipboard-text="{$maccms.site_url}{:mac_url_vod_detail($obj)} 我正在{$maccms.site_name}观看《{$obj.vod_name}》，推荐给你一起看！"><span class="handle-btn-icon"><i class="icon-share"></i></span><span class="handle-btn-name">分享</span></div>
+									</div>
+									{/if}
+									{if condition="$mxprost['mxprocms']['s4']['phone'] eq 1"}
+									<div class="module-player-handle-item qrcode drop">
+										<div class="handle-btn"><span class="handle-btn-icon"><i class="icon-qrcode"></i></span><span class="handle-btn-name">手机看</span></div>
+										<div class="drop-content drop-qrcode">
+											<div class="drop-content-box drop-qrcode-content">
+												<div class="drop-qrcode-info">
+													<div class="drop-qrcode-img" id="qrcode"></div>
+													<div class="drop-qrcode-info-text">
+														<p><strong>{$obj.vod_name} -{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}</strong></p>
+														<p>手机扫一扫继续看</p>
+													</div>
+												</div>
+												<div class="drop-qrcode-info-tips"> {$maccms.site_name}-{$mxprost.mxprocms.s4.qrcodetips}</div>
+											</div>
+										</div>
+									</div>
+										{/if}
+								</div>
+								<div class="player-list">
+									<div class="module-heading player-heading">
+										<h2 class="module-title">选集播放</h2>
+										<div class="module-tab"><label class="module-tab-name"><span class="module-tab-value">{$obj['vod_play_list'][$param['sid']]['player_info']['show']}</span><i class="icon-arrow"></i></label>
+											<div class="module-tab-items tab swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode" >
+												<div class="module-tab-title">选择播放源<span class="close-drop"><i class="icon-close"></i></span></div>
+												<div class="module-tab-items-box" id="mobile-tab-box" style="display:none;">
+												     {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}
+												      {if condition="$param.sid eq $vo.sid"} 
+													<div class="module-tab-item tab-item  active"><span>{$vo.player_info.show}</span><small>{$vo.url_count}</small></div>
+													{else}    
+													 <a class="module-tab-item tab-item" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$param.nid])}"><span>{$vo.player_info.show}</span><small>{$vo.url_count}</small></a>
+													 {/if}
+													 {/maccms:foreach}	
+												</div>
+												<div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events module-tab-items tab swiper-initialized" id="playSwiper">
+													<div class="swiper-wrapper">
+													    {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	 
+													     {if condition="$param.sid eq $vo.sid"} 
+														<div data-hash="slide{1}" class="swiper-slide module-tab-item tab-item active">{$vo.player_info.show}<small class="no">{$vo.url_count}</small></div>
+													{else}    
+													 <a data-hash="slide{1}" class="swiper-slide module-tab-item tab-item" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$param.nid])}">{$vo.player_info.show}<small class="no">{$vo.url_count}</small></a>
+													 {/if}
+												    	{/maccms:foreach}
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="shortcuts-mobile-overlay"></div>
+									</div>
+									  {maccms:foreach name="obj.vod_play_list" id="vo" by="sort"}	
+									<div class="module-list sort-list tab-list play-tab-list {if condition="$param.sid eq $vo.sid"}active{/if}" id="panel2">
+										<div class="module-play-list">
+											<div class="module-play-list-content {if condition="$obj.type_id_1 eq 3||$obj.type_id eq 3 or $obj.type_id_1 eq 1||$obj.type_id eq 1"} module-play-list-larger {else} module-play-list-base{/if}">
+											{maccms:foreach name="vo.urls" id="vo2" key="key2" } 
+                                            <a class="module-play-list-link {if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}active{/if}" href="{:mac_url_vod_play($obj,['sid'=>$vo.sid,'nid'=>$vo2.nid])}" title="播放{$obj.vod_name}{$vo2.name}"><span>{$vo2.name}</span>
+                                            {if condition="$param.sid eq $vo.sid && $param.nid eq $vo2.nid"}<div class="playon"><i></i><i></i><i></i><i></i></div>{/if}
+                                            </a>
+                                         {/maccms:foreach}    
+											</div>
+										</div>
+									</div>
+									 {/maccms:foreach}
+								</div>
+							</div>

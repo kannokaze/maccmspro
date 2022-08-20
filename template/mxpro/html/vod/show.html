@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+   <title>最新{$obj.type_name}-推荐{$obj.type_name} - {$maccms.site_name}</title>
+    <meta name="keywords" content="{$obj.type_key}" />
+    <meta name="description" content="{$obj.type_des}" />
+    {include file="public/include"}
+    </head>
+    <body>
+   <div class="page list pianku">
+{include file="public/head"}
+	<div class="main">
+		<div class="content">
+			<div class="module">
+				<div class="module-heading module-heading-tab">
+					<a class="module-heading-tab-link" href="{:mac_url_type($obj,[],'type')}">{$obj.type_name}首页</a><span class="line"></span>
+					<a class="module-heading-tab-link active">{$obj.type_name}库</a>
+				</div>
+            	{include file="vod/screen"}
+				{include file="ads/ads-screen"}
+				<div class="module-main module-page {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}scroll-box{/if}">
+					<div class="module-items {if condition="$mxprost['mxprocms']['s2']['qjpic'] eq 1"}module-poster-items-small scroll-content {else}module-poster-items-base {/if}">
+					{maccms:vod num="40" paging="yes" pageurl="vod/show" type="current" order="desc" by="time"}
+				{include file="block/vodbox"}
+		        {/maccms:vod} 	
+					</div>
+					{include file="public/paging"}
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="public/foot"}
+</div>
+    </body>
+</html>
