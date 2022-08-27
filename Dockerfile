@@ -111,14 +111,19 @@ RUN addgroup -S nginx && adduser -DHS -s /sbin/nologin -G nginx nginx
 #nginx安装 apk 方式默认开机启动 默认安装目录 /etc/nginx
 RUN apk add nginx=1.20.2-r1
 RUN chown -R nginx:nginx /var/lib/nginx
+
+#暴露80端口
 EXPOSE 80
 
+#挂载匿名卷
+VOLUME ["/home/maccmspro_home"]
+
+#将网站主体拷贝进镜像中
 COPY / /usr/share/nginx/html
 RUN chown -R www-data:www-data /usr/share/nginx/html
 
 # 配置default.conf替换默认设置
-RUN rm
--rf /etc/nginx/http.d/default.conf
+RUN rm -rf /etc/nginx/http.d/default.conf
 ADD default.conf /etc/nginx/http.d
 
 # 启动nginx，启动之前先检查一下配置文件是否正确
